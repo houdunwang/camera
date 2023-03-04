@@ -14,6 +14,19 @@
 - 定义边框颜色
 - 支持 window、Mac 多平台
 
+## 编译说明
+
+因为大叔只有 windows 与 arm 芯片的苹果电脑，所以只编译了这两个系统。
+
+如果你使用的是 inter 芯片的Mac 电脑，请 clone 项目后在项目根目录下执行以下命令，会将你操作系统的执行程序编译到 dist 目录。
+
+```
+pnpm i
+pnpm build:mac
+```
+
+如果你在编译过程中出错失败，一般是你没有正确设置 electron 或 electron-build镜像，请访问[后盾人文档库](https://doc.houdunren.com/%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B/electron/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html)正确的设置国内镜像。
+
 ## 效果展示
 
 摄像头角效果
