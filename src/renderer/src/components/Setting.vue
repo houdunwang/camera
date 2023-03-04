@@ -21,7 +21,13 @@ const cameras = devices.filter((d) => {
       </el-option>
     </el-select>
     <el-input v-model="config.borderWidth" placeholder="边框宽度" size="large" clearable></el-input>
-    <el-input v-model="config.borderColor" placeholder="边框颜色" size="large" clearable></el-input>
+    <el-input
+      v-model="config.borderColor"
+      placeholder="边框颜色"
+      size="large"
+      clearable
+      type="color"
+    ></el-input>
     <section
       class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs"
     >
