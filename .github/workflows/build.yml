@@ -26,27 +26,28 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          yarn install
+          npm i -g pnpm
+          pnpm install
 
       - name: Build Electron App for windows
         if: matrix.os == 'windows-latest'
-        run: yarn run build:win
+        run: pnpm run build:win
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Build Electron App for macos
         if: matrix.os == 'macos-latest'
         run: |
-          yarn run build:mac-x86
-          yarn run build:mac-arm64
+          pnpm run build:mac-x86
+          pnpm run build:mac-arm64
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       # - name: Build Electron App for linux
       #   if: matrix.os == 'ubuntu-latest'
       #   run: |
-      #     yarn run build:linux-x86
-      #     yarn run build:linux-arm64
+      #     pnpm run build:linux-x86
+      #     pnpm run build:linux-arm64
       # env:
       #   GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
