@@ -33,7 +33,7 @@ jobs:
         if: matrix.os == 'windows-latest'
         run: pnpm run build:win
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Build Electron App for macos
         if: matrix.os == 'macos-latest'
@@ -41,7 +41,7 @@ jobs:
           pnpm run build:mac-x86
           pnpm run build:mac-arm64
         env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          GH_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       # - name: Build Electron App for linux
       #   if: matrix.os == 'ubuntu-latest'
