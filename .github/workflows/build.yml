@@ -1,5 +1,6 @@
 name: Build App
-
+permissions:
+  contents: write
 on:
   push:
     tags:
@@ -9,6 +10,7 @@ jobs:
   release:
     name: build and release electron app
     runs-on: ${{ matrix.os }}
+
     if: startsWith(github.ref, 'refs/tags/')
     strategy:
       fail-fast: false
