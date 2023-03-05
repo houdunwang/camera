@@ -1,6 +1,6 @@
 name: Build App
-permissions:
-  contents: write
+# permissions:
+#   contents: write
 on:
   push:
     tags:
