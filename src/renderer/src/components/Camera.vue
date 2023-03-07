@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import { onMounted } from 'vue'
+import FooterMenu from './FooterMenu.vue'
 
 const { config } = useConfigStore()
 const constraints = {
@@ -21,7 +22,7 @@ onMounted(() => {
 </script>
 <template>
   <main
-    class="w-screen h-screen overflow-hidden bg-pink-500"
+    class="w-screen h-screen overflow-hidden bg-pink-500 relative"
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
   >
@@ -36,14 +37,10 @@ onMounted(() => {
       autoplay
       :class="{ 'rounded-full': config.rounded }"
     ></video>
+
+    <!-- 菜单图标 -->
+    <FooterMenu />
   </main>
 </template>
 
-<style lang="scss" scoped>
-main,
-video {
-  &:hover {
-    // border-radius: 0 !important;
-  }
-}
-</style>
+<style lang="scss" scoped></style>

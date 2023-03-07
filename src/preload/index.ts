@@ -2,9 +2,6 @@ import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 // Custom APIs for renderer
 const api = {
-  drag: (opt: { x: number; y: number }) => {
-    ipcRenderer.invoke('drag', opt)
-  },
   actions: () => {
     return {
       quit: ipcRenderer.send('quit')

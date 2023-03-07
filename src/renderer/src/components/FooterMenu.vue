@@ -1,10 +1,9 @@
 <script setup lang="ts">
 import {
   CameraFive,
+  HamburgerButton,
   InnerShadowUp,
-  Setting as SettingICon,
-  Power,
-  HamburgerButton
+  Setting as SettingICon
 } from '@icon-park/vue-next'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
@@ -49,7 +48,7 @@ const quit = () => window.api.actions().quit()
       />
     </el-tooltip>
     <!-- 切换圆角摄像头 -->
-    <el-tooltip class="box-item" effect="dark" content="切换样式" placement="top" :hide-after="0">
+    <el-tooltip class="box-item" effect="dark" content="圆角切换" placement="top" :hide-after="0">
       <InnerShadowUp
         theme="outline"
         size="25"
