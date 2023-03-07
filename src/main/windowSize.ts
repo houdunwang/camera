@@ -6,12 +6,13 @@ const getWin = (event: Electron.IpcMainEvent) => {
 ipcMain.on(
   'setWindowSize',
   (event: Electron.IpcMainEvent, opt: { aspectRatio: number; width?: number; height?: number }) => {
-    console.log(opt)
     const win = getWin(event)
     win.setAspectRatio(opt.aspectRatio)
 
-    if (opt.width && opt.height) {
-      win.setBounds({ width: opt.width, height: opt.height })
+    if (opt.aspectRatio == 1) {
+      win.setBounds({ width: 350, height: 350 })
+    } else {
+      win.setBounds({ width: 500, height: 281 })
     }
   }
 )

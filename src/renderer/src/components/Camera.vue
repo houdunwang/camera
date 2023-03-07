@@ -21,16 +21,29 @@ onMounted(() => {
 </script>
 <template>
   <main
-    class="w-screen h-screen overflow-hidden bg-gray-300"
+    class="w-screen h-screen overflow-hidden bg-pink-500"
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
   >
+    <div
+      class="absolute w-screen top-1/2 -translate-y-1/2 text-white font-light text-base flex flex-col justify-center items-center"
+    >
+      摄像头加载中...
+      <div class="text-xs opacity-90">如果长时间不加载，在软件配置中切换摄像头</div>
+    </div>
     <video
-      class="object-cover h-screen w-screen"
+      class="object-cover h-screen w-screen relative z-10"
       autoplay
       :class="{ 'rounded-full': config.rounded }"
     ></video>
   </main>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+main,
+video {
+  &:hover {
+    // border-radius: 0 !important;
+  }
+}
+</style>

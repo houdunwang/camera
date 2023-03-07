@@ -18,17 +18,10 @@ export default () => {
           }
         },
         {
-          label: '系统设置',
-          customClass: 'fa-sharp fa-solid fa-gear',
-          onClick: () => {
-            window.open('https://app.houdunren.com')
-          }
-        },
-        {
           label: '退出软件',
           customClass: 'fa-sharp fa-solid fa-square-arrow-up-right',
           onClick: () => {
-            window.open('https://app.houdunren.com')
+            window.api.actions().quit()
           }
         }
       ]

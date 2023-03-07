@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { CameraFive, InnerShadowUp, Setting as SettingICon } from '@icon-park/vue-next'
 // import useDrag from '@renderer/composables/useDrag'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 // import { onMounted } from 'vue'
 import Camera from './components/Camera.vue'
 import Setting from './components/Setting.vue'
 import Updater from './components/Updater.vue'
-import useContextMenu from './composables/useContextMenu'
+// import useContextMenu from './composables/useContextMenu'
+import FooterMenu from './components/FooterMenu.vue'
 // import ContextMenu from './components/ContextMenu.vue'
 
-const { onContextMenu } = useContextMenu()
+// const { onContextMenu } = useContextMenu()
 
 const { config } = useConfigStore()
 //拖拽窗口
@@ -18,52 +18,18 @@ const { config } = useConfigStore()
 
 //退出应用
 // const quit = () => window.api.quit()
-
-//修改窗口尺寸
-const changeRounded = () => {
-  config.rounded = !config.rounded
-  config.aspectRatio = config.rounded ? 1 : 16 / 9
-  window.api.setWindowSize({ aspectRatio: config.aspectRatio })
-}
 </script>
 
 <template>
   <Suspense>
-    <main class="relative" @contextmenu="onContextMenu">
+    <main class="relative">
       <Updater />
-      <section>
-        <!-- 设置页面 -->
-        <SettingICon
-          theme="outline"
-          size="25"
-          :strokeWidth="3"
-          class="icons text-gray-200 cursor-pointer opacity-10 hover:opacity-100 absolute left-1/2 -translate-x-1/2 pt-3 z-10"
-          @click="config.page = 'setting'"
-          v-if="config.page != 'setting'"
-        />
-        <!-- 摄像头页面 -->
-        <CameraFive
-          theme="outline"
-          size="25"
-          :strokeWidth="3"
-          class="icons text-gray-200 cursor-pointer opacity-10 hover:opacity-100 absolute left-1/2 -translate-x-1/2 pt-3 z-10"
-          @click="config.page = 'camera'"
-          v-if="config.page == 'setting'"
-        />
-        <!-- 切换圆角摄像头 -->
-        <InnerShadowUp
-          theme="outline"
-          size="25"
-          :strokeWidth="3"
-          class="icons text-gray-200 cursor-pointer opacity-10 hover:opacity-100 absolute bottom-0 left-1/2 -translate-x-1/2 z-20 mb-3"
-          v-if="config.page == 'camera'"
-          @click="changeRounded"
-        />
-      </section>
       <section>
         <Camera v-if="config.page == 'camera'" />
         <Setting v-else />
       </section>
+      <!-- 菜单图标 -->
+      <FooterMenu />
     </main>
   </Suspense>
 </template>

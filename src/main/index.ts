@@ -3,6 +3,7 @@ import { app, BrowserWindow, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
 import autoUpdater from './autoUpdater'
+import './ipcMain'
 // import './ContextMenu'
 // import './drag'
 import './menu'
@@ -10,8 +11,10 @@ import './windowSize'
 import { createTray } from './tray'
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
-    width: 480,
-    height: 270,
+    width: 500,
+    height: 281,
+    minWidth: 300,
+    minHeight: 300,
     alwaysOnTop: true,
     show: false,
     autoHideMenuBar: true,

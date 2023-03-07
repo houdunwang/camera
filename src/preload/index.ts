@@ -5,8 +5,10 @@ const api = {
   drag: (opt: { x: number; y: number }) => {
     ipcRenderer.invoke('drag', opt)
   },
-  quit: () => {
-    ipcRenderer.send('contextMenu')
+  actions: () => {
+    return {
+      quit: ipcRenderer.send('quit')
+    }
   },
   //下载进度条
   downloadProgress: (callback: (progress: any) => {}) => {

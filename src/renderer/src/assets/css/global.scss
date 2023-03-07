@@ -15,7 +15,9 @@ html {
   --mx-menu-placeholder-width: 10px !important;
 }
 
-textarea,.icons,input {
+textarea,
+.footer-menu,
+input {
   -webkit-app-region: no-drag;
 }
 .titlebar {
