@@ -22,15 +22,14 @@ const { config } = useConfigStore()
 //修改窗口尺寸
 const changeRounded = () => {
   config.rounded = !config.rounded
-  if (config.rounded) window.api.setWindowSize({ aspectRatio: 1 / 1, width: 300, height: 300 })
-  else window.api.setWindowSize({ aspectRatio: 1 / 1, width: 480, height: 270 })
+  config.aspectRatio = config.rounded ? 1 : 16 / 9
+  window.api.setWindowSize({ aspectRatio: config.aspectRatio })
 }
 </script>
 
 <template>
   <Suspense>
-    <main class="relative group" @contextmenu="onContextMenu">
-      <!-- <ContextMenu /> -->
+    <main class="relative" @contextmenu="onContextMenu">
       <Updater />
       <section>
         <!-- 设置页面 -->
@@ -38,16 +37,16 @@ const changeRounded = () => {
           theme="outline"
           size="25"
           :strokeWidth="3"
-          class="text-gray-200 cursor-pointer hidden group-hover:block absolute left-1/2 -translate-x-1/2 pt-3 z-10"
+          class="icons text-gray-200 cursor-pointer opacity-10 hover:opacity-100 absolute left-1/2 -translate-x-1/2 pt-3 z-10"
           @click="config.page = 'setting'"
-          v-if="config.page == 'camera'"
+          v-if="config.page != 'setting'"
         />
         <!-- 摄像头页面 -->
         <CameraFive
           theme="outline"
           size="25"
           :strokeWidth="3"
-          class="text-gray-200 cursor-pointer hidden group-hover:block absolute left-1/2 -translate-x-1/2 pt-3 z-10"
+          class="icons text-gray-200 cursor-pointer opacity-10 hover:opacity-100 absolute left-1/2 -translate-x-1/2 pt-3 z-10"
           @click="config.page = 'camera'"
           v-if="config.page == 'setting'"
         />
@@ -56,7 +55,7 @@ const changeRounded = () => {
           theme="outline"
           size="25"
           :strokeWidth="3"
-          class="text-gray-200 cursor-pointer hidden group-hover:block absolute bottom-0 left-1/2 -translate-x-1/2 z-20 mb-3"
+          class="icons text-gray-200 cursor-pointer opacity-10 hover:opacity-100 absolute bottom-0 left-1/2 -translate-x-1/2 z-20 mb-3"
           v-if="config.page == 'camera'"
           @click="changeRounded"
         />

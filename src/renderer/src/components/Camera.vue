@@ -6,9 +6,9 @@ const { config } = useConfigStore()
 const constraints = {
   audio: false,
   video: {
-    deviceId: config.deviceId,
-    width: 1920,
-    height: 1080
+    deviceId: config.deviceId
+    // width: 1920,
+    // height: 1080
   }
 } as MediaStreamConstraints
 
@@ -25,7 +25,11 @@ onMounted(() => {
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
   >
-    <video class="object-cover h-full" autoplay :class="{ 'rounded-full': config.rounded }"></video>
+    <video
+      class="object-cover h-screen w-screen"
+      autoplay
+      :class="{ 'rounded-full': config.rounded }"
+    ></video>
   </main>
 </template>
 
