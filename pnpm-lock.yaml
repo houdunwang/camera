@@ -6,6 +6,7 @@ specifiers:
   '@electron-toolkit/utils': ^1.0.2
   '@electron/notarize': ^1.2.3
   '@icon-park/vue-next': ^1.4.2
+  '@imengyu/vue3-context-menu': ^1.2.3
   '@rushstack/eslint-patch': ^1.2.0
   '@types/node': 16.18.11
   '@vitejs/plugin-vue': ^4.0.0
@@ -37,6 +38,7 @@ dependencies:
   '@electron-toolkit/preload': 1.0.3_electron@21.4.2
   '@electron-toolkit/utils': 1.0.2_electron@21.4.2
   '@icon-park/vue-next': 1.4.2_vue@3.2.47
+  '@imengyu/vue3-context-menu': 1.2.3
   electron-updater: 5.3.0
   element-plus: 2.2.32_vue@3.2.47
   pinia: 2.0.32_hmuptsblhheur2tugfgucj7gc4
@@ -633,6 +635,10 @@ packages:
       vue: 3.x
     dependencies:
       vue: 3.2.47
+    dev: false
+
+  /@imengyu/vue3-context-menu/1.2.3:
+    resolution: {integrity: sha512-DhEJ6zJbwjiKgL3faNoFaSrmJNzYssO4VfvHVnKMMzu3/XN/NnnJUjy8Q95l4AmB26Ddbc5PZ4qwHkFQ2gWRMg==}
     dev: false
 
   /@jridgewell/gen-mapping/0.1.1:

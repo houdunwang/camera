@@ -8,7 +8,7 @@ export const useConfigStore = defineStore(
       borderColor: '#8e44ad',
       borderWidth: '0px',
       deviceId: '',
-      page: 'camera',
+      page: 'setting',
       rounded: false,
       //视频比例
       aspectRatio: 16 / 9

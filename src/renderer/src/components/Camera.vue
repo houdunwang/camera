@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 <template>
   <main
-    class="w-screen h-screen overflow-hidden border-red-50 border-[]"
+    class="w-screen h-screen overflow-hidden bg-gray-300"
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
   >

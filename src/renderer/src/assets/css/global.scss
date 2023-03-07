@@ -8,17 +8,17 @@
 body {
   background-color: transparent;
 }
-html {
-}
 
 html {
-  // -webkit-app-region: drag;
+  -webkit-app-region: drag;
+  //菜单图标与文字间距
+  --mx-menu-placeholder-width: 10px !important;
 }
 
 textarea {
-  // -webkit-app-region: no-drag;
+  -webkit-app-region: no-drag;
 }
 .titlebar {
   //禁用文本选择
-  // -webkit-user-select: none;
+  -webkit-user-select: none;
 }

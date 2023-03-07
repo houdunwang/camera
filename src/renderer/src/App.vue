@@ -1,19 +1,23 @@
 <script setup lang="ts">
 import { CameraFive, InnerShadowUp, Setting as SettingICon } from '@icon-park/vue-next'
-import useDrag from '@renderer/composables/useDrag'
+// import useDrag from '@renderer/composables/useDrag'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
-import { onMounted } from 'vue'
+// import { onMounted } from 'vue'
 import Camera from './components/Camera.vue'
 import Setting from './components/Setting.vue'
 import Updater from './components/Updater.vue'
+import useContextMenu from './composables/useContextMenu'
+// import ContextMenu from './components/ContextMenu.vue'
+
+const { onContextMenu } = useContextMenu()
 
 const { config } = useConfigStore()
 //拖拽窗口
-const { drag } = useDrag()
-onMounted(() => drag.run())
+// const { drag } = useDrag()
+// onMounted(() => drag.run())
 
 //退出应用
-const quit = () => window.api.quit()
+// const quit = () => window.api.quit()
 
 //修改窗口尺寸
 const changeRounded = () => {
@@ -25,7 +29,8 @@ const changeRounded = () => {
 
 <template>
   <Suspense>
-    <main class="relative group" @contextmenu="quit">
+    <main class="relative group" @contextmenu="onContextMenu">
+      <!-- <ContextMenu /> -->
       <Updater />
       <section>
         <!-- 设置页面 -->
