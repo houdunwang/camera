@@ -8,7 +8,7 @@ ipcMain.on('contextMenu', () => {
     },
     {
       label: '访问官网',
-      click: () => shell.openExternal('https://www.houdunren.com')
+      click: () => shell.openExternal('https://app.houdunren.com')
     }
   ] as MenuItemConstructorOptions[]
 

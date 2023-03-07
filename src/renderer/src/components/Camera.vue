@@ -6,7 +6,9 @@ const { config } = useConfigStore()
 const constraints = {
   audio: false,
   video: {
-    deviceId: config.deviceId
+    deviceId: config.deviceId,
+    width: 1920,
+    height: 1080
   }
 } as MediaStreamConstraints
 

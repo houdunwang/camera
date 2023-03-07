@@ -2,20 +2,16 @@ import { electronApp, is, optimizer } from '@electron-toolkit/utils'
 import { app, BrowserWindow, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
+import autoUpdater from './autoUpdater'
 import './contextMenu'
 import './drag'
 import './menu'
+import './windowSize'
 import { createTray } from './tray'
-import autoUpdater from './autoUpdater'
-
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
-    width: 300,
-    height: 300,
-    minWidth: 300,
-    minHeight: 300,
-    // x: 1500,
-    // y: 100,
+    width: 480,
+    height: 270,
     alwaysOnTop: true,
     show: false,
     autoHideMenuBar: true,
@@ -29,7 +25,7 @@ function createWindow(): void {
     }
   })
   if (is.dev) mainWindow.webContents.openDevTools()
-  mainWindow.setAspectRatio(1)
+  //缩放比例
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })

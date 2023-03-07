@@ -13,6 +13,9 @@ const api = {
     ipcRenderer.on('downloadProgress', (_event, progress) => {
       callback(progress)
     })
+  },
+  setWindowSize: (opt: { aspectRatio: number; width: number; height: number }) => {
+    ipcRenderer.send('setWindowSize', opt)
   }
 }
 

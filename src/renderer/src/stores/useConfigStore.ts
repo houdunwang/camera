@@ -9,7 +9,9 @@ export const useConfigStore = defineStore(
       borderWidth: '0px',
       deviceId: '',
       page: 'camera',
-      rounded: false
+      rounded: false,
+      //视频比例
+      aspectRatio: 16 / 9
     })
 
     const updateConfig = () => {}
