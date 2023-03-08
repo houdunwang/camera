@@ -9,7 +9,8 @@ body {
   background-color: transparent;
 }
 
-html,main {
+html,
+main {
   -webkit-app-region: drag;
   //菜单图标与文字间距
   --mx-menu-placeholder-width: 10px !important;

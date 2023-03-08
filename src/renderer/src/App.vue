@@ -6,6 +6,7 @@ import Updater from './components/Updater.vue'
 
 const { config } = useConfigStore()
 
+//右键菜单
 const contextMenu = () => window.api.contextMenu()
 </script>
 
