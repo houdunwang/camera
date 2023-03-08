@@ -34,16 +34,16 @@ pnpm build:mac
 
 摄像头角效果
 
-<img src="./assets/image-20230303145607103.png" alt="image-20230303145607103" style="zoom:50%;" />
+<img src="./assets/image-20230303145607103.jpeg" alt="image-20230303145607103"  />
 
 支持横屏样式
 
-![image-20230308152129044](./assets/image-20230308152129044.png)
+![image-20230308152129044](./assets/image-20230308152129044.jpeg)
 
 支持多种参数的配置
 
-<img src="./assets/image-20230303145726417.png" alt="image-20230303145726417" style="zoom:50%;" />
+<img src="./assets/image-20230303145726417.jpeg" alt="image-20230303145726417"  />
 
 支持多摄像头摄像头选择
 
-<img src="./assets/image-20230303145754324.png" alt="image-20230303145754324" style="zoom:50%;" />
+<img src="./assets/image-20230303145754324.jpeg" alt="image-20230303145754324"  />
