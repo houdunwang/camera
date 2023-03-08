@@ -15,6 +15,7 @@ const constraints = {
 
 onMounted(() => {
   const video = document.querySelector('video')!
+  config.videoElement = video
   navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
     video.srcObject = stream
   })
