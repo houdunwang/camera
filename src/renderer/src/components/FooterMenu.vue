@@ -58,9 +58,6 @@ const quit = () => window.api.actions().quit()
         @click="changeRounded"
       />
     </el-tooltip>
-    <!-- <el-tooltip class="box-item" effect="dark" content="退出软件" placement="top" :hide-after="0">
-      <power theme="outline" size="25" :strokeWidth="3" class="icon" />
-    </el-tooltip> -->
     <div class="opacity-0 group-hover:opacity-100">
       <el-dropdown>
         <hamburger-button theme="outline" size="25" class="icon" />
