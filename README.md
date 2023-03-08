@@ -36,7 +36,9 @@ pnpm build:mac
 
 <img src="./assets/image-20230303145607103.png" alt="image-20230303145607103" style="zoom:50%;" />
 
+支持横屏样式
 
+![image-20230308152129044](./assets/image-20230308152129044.png)
 
 支持多种参数的配置
 
