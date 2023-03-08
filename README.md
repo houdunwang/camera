@@ -18,9 +18,9 @@
 
 ## 软件下载
 
-因为大叔只有 windows 与 arm 芯片的苹果电脑，所以只编译了这两个系统的安装程序，你可以直接[下载程序](https://github.com/houdunwang/camera/releases)使用。
+你可以从 [Github](https://github.com/houdunwang/camera/releases) 或 [软件官网](https://app.houdunren.com/) 下载软件。
 
-如果你使用的是 intel 芯片的Mac 电脑，请 clone 项目后在项目根目录下执行以下命令，将会生成安装程序到 dist 目录。
+你也可以 clone 项目后，在本地根据自行编译软件使用，请进入项目根目录执行以下命令。
 ```
 pnpm i
 pnpm build:mac
