@@ -6,6 +6,7 @@ import autoUpdater from './autoUpdater'
 import './ipcMain'
 import './menu'
 import './windowSize'
+import './contextMenu'
 import { createTray } from './tray'
 function createWindow(): void {
   const mainWindow = new BrowserWindow({

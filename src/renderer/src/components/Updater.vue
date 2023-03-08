@@ -10,7 +10,7 @@ window.api.downloadProgress((_progress: any) => {
 
 <template>
   <main
-    class="p-5 w-screen h-screen absolute z-30 flex flex-col justify-center shadow-inner bg-gray-100"
+    class="p-5 w-screen h-screen absolute z-30 flex flex-col justify-center shadow-inner bg-gray-100 rounded-lg"
     v-if="progress"
   >
     <div class="flex justify-center">

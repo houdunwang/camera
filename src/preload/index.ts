@@ -15,6 +15,9 @@ const api = {
   },
   setWindowSize: (opt: { aspectRatio: number; width: number; height: number }) => {
     ipcRenderer.send('setWindowSize', opt)
+  },
+  contextMenu: () => {
+    ipcRenderer.send('contextMenu')
   }
 }
 

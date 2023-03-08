@@ -30,10 +30,10 @@ export default (win: BrowserWindow) => {
 
   //没有新版本时
   autoUpdater.on('update-not-available', (_info) => {
-    dialog.showMessageBox({
-      type: 'info',
-      message: `你已经是最新版本`
-    })
+    // dialog.showMessageBox({
+    //   type: 'info',
+    //   message: `你已经是最新版本`
+    // })
   })
 
   //更新下载完毕

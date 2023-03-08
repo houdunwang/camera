@@ -18,12 +18,22 @@
 
 ## 软件下载
 
-因为大叔只有 windows 与 arm 芯片的苹果电脑，所以只编译了这两个系统的安装程序，你可以直接[下载程序](https://github.com/houdunwang/camera/releases)使用。
+你可以从 [Github](https://github.com/houdunwang/camera/releases) 或 [软件官网](https://app.houdunren.com/) 下载软件。
 
-如果你使用的是 intel 芯片的Mac 电脑，请 clone 项目后在项目根目录下执行以下命令，将会生成安装程序到 dist 目录。
+你也可以 clone 项目后，在本地根据自行编译软件使用，请进入项目根目录执行以下命令，你也可以在项目的 package.json文件中看到更多命令。
 ```
+# 安装依赖包
 pnpm i
-pnpm build:mac
+
+# Mac系统编译命令
+pnpm build:mac-x86
+pnpm build:mac-arm64
+
+# Window系统编译命令
+pnpm build:win
+
+# Linux系统编译命令
+pnpm build:linux
 ```
 
 如果你在编译过程中出错失败，一般是你没有正确设置 electron 或 electron-build镜像，请访问[后盾人文档库](https://doc.houdunren.com/%E7%B3%BB%E7%BB%9F%E8%AF%BE%E7%A8%8B/electron/1%20%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.html)正确的设置国内镜像。
@@ -34,14 +44,16 @@ pnpm build:mac
 
 摄像头角效果
 
-<img src="./assets/image-20230303145607103.png" alt="image-20230303145607103" style="zoom:50%;" />
+<img src="./assets/image-20230303145607103.jpeg" alt="image-20230303145607103"  />
 
+支持横屏样式
 
+![image-20230308152129044](./assets/image-20230308152129044.jpeg)
 
 支持多种参数的配置
 
-<img src="./assets/image-20230303145726417.png" alt="image-20230303145726417" style="zoom:50%;" />
+<img src="./assets/image-20230303145726417.jpeg" alt="image-20230303145726417"  />
 
 支持多摄像头摄像头选择
 
-<img src="./assets/image-20230303145754324.png" alt="image-20230303145754324" style="zoom:50%;" />
+<img src="./assets/image-20230303145754324.jpeg" alt="image-20230303145754324"  />

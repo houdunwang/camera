@@ -13,7 +13,7 @@ const { config } = useConfigStore()
 const changeRounded = () => {
   config.rounded = !config.rounded
   config.aspectRatio = config.rounded ? 1 : 16 / 9
-  window.api.setWindowSize({ aspectRatio: config.aspectRatio })
+  window.api.setWindowSize({ aspectRatio: config.aspectRatio }) 
 }
 window.api.setWindowSize({ aspectRatio: config.aspectRatio })
 
@@ -64,6 +64,7 @@ const quit = () => window.api.actions().quit()
         @click="changeRounded"
       />
     </el-tooltip>
+
     <!-- 水平翻转摄像头 -->
     <el-tooltip class="box-item" effect="dark" content="摄像头镜像" placement="top" :hide-after="0">
       <FlipHorizontally
@@ -78,6 +79,7 @@ const quit = () => window.api.actions().quit()
     <!-- <el-tooltip class="box-item" effect="dark" content="退出软件" placement="top" :hide-after="0">
       <power theme="outline" size="25" :strokeWidth="3" class="icon" />
     </el-tooltip> -->
+
     <div class="opacity-0 group-hover:opacity-100">
       <el-dropdown>
         <hamburger-button theme="outline" size="25" class="icon" />
