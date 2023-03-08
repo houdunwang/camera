@@ -4,6 +4,7 @@ import { onMounted } from 'vue'
 import FooterMenu from './FooterMenu.vue'
 
 const { config } = useConfigStore()
+
 const constraints = {
   audio: false,
   video: {

@@ -13,13 +13,14 @@ const { config } = useConfigStore()
 const changeRounded = () => {
   config.rounded = !config.rounded
   config.aspectRatio = config.rounded ? 1 : 16 / 9
-  window.api.setWindowSize({ aspectRatio: config.aspectRatio }) 
+  window.api.setWindowSize({ aspectRatio: config.aspectRatio })
 }
 window.api.setWindowSize({ aspectRatio: config.aspectRatio })
 
+//镜像画面
 const changeFlipHorizontally = () => {
   config.flip = !config.flip
-  config.videoElement.style.transform = config.flip ? 'rotateY(180deg)' : ''
+  config.videoElement!.style.transform = config.flip ? 'rotateY(180deg)' : ''
 }
 
 //退出软件

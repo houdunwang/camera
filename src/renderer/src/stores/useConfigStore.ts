@@ -12,9 +12,7 @@ export const useConfigStore = defineStore(
       rounded: false,
       //视频比例
       aspectRatio: 16 / 9,
-      // width: 480,
-      // height: 270
-      videoElement: new HTMLVideoElement(),
+      videoElement: null as null | HTMLVideoElement,
       flip: false
     })
 
