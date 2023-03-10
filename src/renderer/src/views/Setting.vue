@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
-import FooterMenu from './FooterMenu.vue'
+import Footer from '@renderer/components/Footer.vue'
+import { ref } from 'vue'
 
 const { config } = useConfigStore()
 const devices = await navigator.mediaDevices.enumerateDevices()
 const cameras = devices.filter((d) => {
   return d.kind.includes('video')
+})
+const version = ref('')
+window.api.version((_version: string) => {
+  version.value = _version
 })
 </script>
 
@@ -43,17 +48,15 @@ const cameras = devices.filter((d) => {
       <section
         class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs"
       >
-        <span class="text-orange-300 mb-1">向军大叔作品</span>
-        <span class="font-light opacity-70">晚八点直播 / 抖音或B站搜索后盾人</span>
+        <span class="text-orange-300 mb-2">向军大叔作品</span>
+        <span class="font-light opacity-70 mb-1">晚八点直播 / 抖音或B站搜索后盾人</span>
+        <span class="font-light opacity-70 text-xs text-gray-300">
+          版本号: {{ version ? version : '检测中' }}
+        </span>
       </section>
     </section>
 
     <!-- 菜单图标 -->
-    <FooterMenu />
+    <Footer />
   </main>
 </template>
-
-<style lang="scss" scoped>
-main {
-}
-</style>

@@ -1,12 +1,9 @@
-import { contextBridge, ipcRenderer } from 'electron'
+import { IpcRendererEvent, contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
 // Custom APIs for renderer
 const api = {
-  actions: () => {
-    return {
-      quit: ipcRenderer.send('quit')
-    }
-  },
+  //退出应用
+  quit: () => ipcRenderer.send('quit'),
   //下载进度条
   downloadProgress: (callback: (progress: any) => {}) => {
     ipcRenderer.on('downloadProgress', (_event, progress) => {
@@ -18,6 +15,10 @@ const api = {
   },
   contextMenu: () => {
     ipcRenderer.send('contextMenu')
+  },
+  //版本号事件
+  version: (callback: (version: string) => void) => {
+    ipcRenderer.on('version', (_event: IpcRendererEvent, version) => callback(version))
   }
 }
 

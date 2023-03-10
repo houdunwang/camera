@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import Footer from '@renderer/components/Footer.vue'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import { onMounted } from 'vue'
-import FooterMenu from './FooterMenu.vue'
 
 const { config } = useConfigStore()
 
@@ -39,7 +39,7 @@ onMounted(() => {
     ></video>
 
     <!-- 菜单图标 -->
-    <FooterMenu />
+    <Footer />
   </main>
 </template>
 
