@@ -1,21 +1,27 @@
 <script setup lang="ts">
 import { InnerShadowUp } from '@icon-park/vue-next'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
+
 const { config } = useConfigStore()
 //修改窗口尺寸
-const changeRounded = () => {
-  config.rounded = !config.rounded
-  config.aspectRatio = config.rounded ? 1 : 16 / 9
-  window.api.setWindowSize({ aspectRatio: config.aspectRatio })
+const changeRounded = (): void => {
+  config.cameraSize.rounded = !config.cameraSize.rounded
+  config.cameraSize.aspectRatio = config.cameraSize.rounded ? 1 : 16 / 9
+  window.api.setWindowSize({ aspectRatio: config.cameraSize.aspectRatio })
 }
-window.api.setWindowSize({ aspectRatio: config.aspectRatio })
 </script>
 
 <template>
   <!-- 切换圆角摄像头 -->
-  <el-tooltip class="box-item" effect="dark" content="圆角切换" placement="top" :hide-after="0">
+  <el-tooltip
+    v-if="config.page === 'camera'"
+    :hide-after="0"
+    class="box-item"
+    content="圆角切换"
+    effect="dark"
+    placement="top"
+  >
     <InnerShadowUp
-      v-if="config.page == 'camera'"
       theme="outline"
       size="25"
       :stroke-width="3"

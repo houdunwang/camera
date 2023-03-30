@@ -6,12 +6,14 @@ autoUpdater.autoDownload = false
 //退出时自动安装更新
 autoUpdater.autoInstallOnAppQuit = false
 
-export default (win: BrowserWindow) => {
+export default (win: BrowserWindow): void => {
   //检查是否有更新
-  if (!is.dev) autoUpdater.checkForUpdates()
+  if (!is.dev) {
+    autoUpdater.checkForUpdates().then()
+  }
 
   //有新版本时
-  autoUpdater.on('update-available', (_info) => {
+  autoUpdater.on('update-available', () => {
     dialog
       .showMessageBox({
         type: 'warning',
@@ -23,14 +25,14 @@ export default (win: BrowserWindow) => {
       .then((res) => {
         if (res.response == 0) {
           //开始下载更新
-          autoUpdater.downloadUpdate()
+          autoUpdater.downloadUpdate().then()
         }
       })
   })
 
   //没有新版本时
-  autoUpdater.on('update-not-available', (_info: any) => {
-    win.webContents.send('version', _info.tag)
+  autoUpdater.on('update-not-available', ({ version }) => {
+    win.webContents.send('version', version)
     // dialog.showMessageBox({
     //   type: 'info',
     //   message: `${_info}-${JSON.stringify(_info)}`
@@ -38,13 +40,13 @@ export default (win: BrowserWindow) => {
   })
 
   //更新下载完毕
-  autoUpdater.on('update-downloaded', (_info) => {
+  autoUpdater.on('update-downloaded', () => {
     //退出并安装更新
     autoUpdater.quitAndInstall()
   })
 
   //更新发生错误
-  autoUpdater.on('error', (_info) => {
+  autoUpdater.on('error', () => {
     // dialog
     //   .showMessageBox({
     //     type: 'warning',

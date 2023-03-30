@@ -1,17 +1,18 @@
 <script setup lang="ts">
 import { ref } from 'vue'
+import { ProgressInfo } from 'builder-util-runtime/out/ProgressCallbackTransform'
 
 //下载进度条
-const progress = ref<any>(null)
-window.api.downloadProgress((_progress: any) => {
+const progress = ref<ProgressInfo | null>(null)
+window.api.downloadProgress((_progress: ProgressInfo): void => {
   progress.value = _progress
 })
 </script>
 
 <template>
   <main
-    class="p-5 w-screen h-screen absolute z-30 flex flex-col justify-center shadow-inner bg-gray-100 rounded-lg"
     v-if="progress"
+    class="p-5 w-screen h-screen absolute z-30 flex flex-col justify-center shadow-inner bg-gray-100 rounded-lg"
   >
     <div class="flex justify-center">
       <img
@@ -22,11 +23,7 @@ window.api.downloadProgress((_progress: any) => {
     </div>
     <h1 class="py-3 text-center font-bold opacity-60 text-sm font-mono">下载更新包</h1>
     <div class="">
-      <el-progress
-        :text-inside="true"
-        :stroke-width="26"
-        :percentage="parseInt(progress.percent)"
-      />
+      <el-progress :percentage="progress.percent" :stroke-width="26" :text-inside="true" />
     </div>
     <div class="mt-5 flex justify-center">
       <a

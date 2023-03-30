@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import Footer from '@renderer/components/Footer.vue'
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 const { config } = useConfigStore()
 const devices = await navigator.mediaDevices.enumerateDevices()
@@ -12,6 +12,8 @@ const version = ref('')
 window.api.version((_version: string) => {
   version.value = _version
 })
+const borderColor = ref(config.borderColor)
+watch(borderColor, async (value) => (config.borderColor = value))
 </script>
 
 <template>
@@ -33,18 +35,25 @@ window.api.version((_version: string) => {
         >
         </el-option>
       </el-select>
-      <el-input
-        v-model="config.borderWidth"
-        placeholder="边框宽度"
-        size="large"
-        clearable
-      ></el-input>
-      <el-input
-        v-model="config.borderColor"
-        placeholder="边框颜色"
-        size="large"
-        clearable
-      ></el-input>
+      <div class="slider-block">
+        <span class="text-gray-100 opacity-80 text-sm font-mono">边框宽度</span>
+        <!-- fixme: 按钮卡在条中 -->
+        <el-slider v-model="config.borderWidth" />
+      </div>
+      <div class="flex items-center">
+        <el-input
+          v-model="borderColor"
+          :style="{
+            border: `5px solid ${borderColor}`
+          }"
+          class="mr-2"
+          clearable
+          disabled
+          placeholder="边框颜色"
+          size="large"
+        ></el-input>
+        <el-color-picker v-model="borderColor" />
+      </div>
       <section
         class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs"
       >
@@ -60,3 +69,12 @@ window.api.version((_version: string) => {
     <Footer />
   </main>
 </template>
+<style lang="scss" scoped>
+:deep(.el-slider__bar) {
+  background-color: v-bind(borderColor);
+}
+
+:deep(.el-color-picker) {
+  padding-right: 5px;
+}
+</style>

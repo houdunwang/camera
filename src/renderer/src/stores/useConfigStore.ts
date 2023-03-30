@@ -6,17 +6,16 @@ export const useConfigStore = defineStore(
   () => {
     const config = ref({
       borderColor: '#8e44ad',
-      borderWidth: '0px',
+      borderWidth: 0,
       deviceId: '',
       page: 'setting',
-      rounded: false,
-      //视频比例
-      aspectRatio: 16 / 9,
       videoElement: null as null | HTMLVideoElement,
-      flip: false
+      flip: false,
+      settingNormalSize: { width: 500, height: 350 },
+      cameraSize: { aspectRatio: 16 / 9, width: 500, height: 350, rounded: false }
     })
 
-    const updateConfig = () => {}
+    const updateConfig = (): void => {}
 
     return { config, updateConfig }
   },

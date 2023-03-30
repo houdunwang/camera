@@ -2,7 +2,7 @@
 import { HamburgerButton } from '@icon-park/vue-next'
 
 //退出软件
-const quit = () => window.api.quit()
+const quit = (): void => window.api.quit()
 </script>
 
 <template>

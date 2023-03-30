@@ -1,18 +1,24 @@
 import { BrowserWindow, ipcMain } from 'electron'
 //获取窗口
-const getWin = (event: Electron.IpcMainEvent) => {
-  return BrowserWindow.fromWebContents(event.sender)!
-}
+const getWin = (event): BrowserWindow => BrowserWindow.fromWebContents(event.sender)!
+
 ipcMain.on(
   'setWindowSize',
-  (event: Electron.IpcMainEvent, opt: { aspectRatio: number; width?: number; height?: number }) => {
+  (
+    event,
+    { aspectRatio, height, width }: { aspectRatio?: number; width?: number; height?: number }
+  ) => {
     const win = getWin(event)
-    win.setAspectRatio(opt.aspectRatio)
-
-    if (opt.aspectRatio == 1) {
-      win.setBounds({ width: 350, height: 350 })
-    } else {
-      win.setBounds({ width: 500, height: 281 })
+    if (typeof aspectRatio !== 'undefined') {
+      win.setAspectRatio(aspectRatio)
+    }
+    if (typeof height !== 'undefined' && typeof width !== 'undefined') {
+      win.setContentSize(width, height)
     }
   }
 )
+ipcMain.on('getWindowSize', (event) => {
+  const win = getWin(event)
+  const { width, height } = win.getBounds()
+  event.returnValue = { aspectRatio: width / height, width, height }
+})

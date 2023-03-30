@@ -8,11 +8,12 @@ import './menu'
 import './windowSize'
 import './contextMenu'
 import { createTray } from './tray'
+
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
     width: 500,
-    height: 281,
-    minHeight: 300,
+    height: 350,
+    minHeight: 350,
     alwaysOnTop: true,
     show: false,
     autoHideMenuBar: true,
@@ -25,23 +26,28 @@ function createWindow(): void {
       sandbox: false
     }
   })
-  if (is.dev) mainWindow.webContents.openDevTools()
+  if (is.dev) {
+    const { default: installExtension } = require('electron-devtools-installer')
+    const vue_devtools_beta = { id: 'ljjemllljcmogpfapbkkighbhhppjdbg', electron: '>=1.2.1' }
+    installExtension(vue_devtools_beta).then()
+    mainWindow.webContents.openDevTools()
+  }
   //缩放比例
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url)
+    shell.openExternal(details.url).then()
     return { action: 'deny' }
   })
 
   // HMR for renderer base on electron-vite cli.
   // Load the remote URL for development or the local html file for production.
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
+    mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL']).then()
   } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+    mainWindow.loadFile(join(__dirname, '../renderer/index.html')).then()
   }
 
   autoUpdater(mainWindow)

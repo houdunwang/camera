@@ -7,7 +7,7 @@ import Updater from './views/Updater.vue'
 const { config } = useConfigStore()
 
 //右键菜单
-const contextMenu = () => window.api.contextMenu()
+const contextMenu = (): void => window.api.contextMenu()
 </script>
 
 <template>
@@ -15,7 +15,7 @@ const contextMenu = () => window.api.contextMenu()
     <main class="relative" @contextmenu="contextMenu">
       <Updater />
       <section>
-        <Camera v-if="config.page == 'camera'" />
+        <Camera v-if="config.page === 'camera'" />
         <Setting v-else />
       </section>
     </main>

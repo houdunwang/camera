@@ -10,7 +10,7 @@ const constraints = {
   video: {
     deviceId: config.deviceId
   }
-} as MediaStreamConstraints
+}
 
 onMounted(() => {
   const video = document.querySelector('video')!
@@ -23,8 +23,8 @@ onMounted(() => {
 <template>
   <main
     class="w-screen h-screen overflow-hidden bg-pink-500 relative"
-    :class="{ 'rounded-full': config.rounded }"
-    :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
+    :class="{ 'rounded-full': config.cameraSize.rounded }"
+    :style="`border: solid ${config.borderWidth}px ${config.borderColor}`"
   >
     <div
       class="absolute w-screen top-1/2 -translate-y-1/2 text-white font-light text-base flex flex-col justify-center items-center"
@@ -35,7 +35,7 @@ onMounted(() => {
     <video
       class="object-cover h-screen w-screen relative z-10"
       autoplay
-      :class="{ 'rounded-full': config.rounded }"
+      :class="{ 'rounded-full': config.cameraSize.rounded }"
     ></video>
 
     <!-- 菜单图标 -->
