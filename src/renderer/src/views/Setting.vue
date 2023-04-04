@@ -37,7 +37,6 @@ watch(borderColor, async (value) => (config.borderColor = value))
       </el-select>
       <div class="slider-block">
         <span class="text-gray-100 opacity-80 text-sm font-mono">边框宽度</span>
-        <!-- fixme: 按钮卡在条中 -->
         <el-slider v-model="config.borderWidth" />
       </div>
       <div class="flex items-center">
@@ -70,8 +69,17 @@ watch(borderColor, async (value) => (config.borderColor = value))
   </main>
 </template>
 <style lang="scss" scoped>
-:deep(.el-slider__bar) {
-  background-color: v-bind(borderColor);
+:deep(.el-slider) {
+  position: relative;
+
+  .el-slider__runway {
+    --el-slider-button-wrapper-offset: -3px;
+    position: initial;
+  }
+
+  .el-slider__bar {
+    background-color: v-bind(borderColor);
+  }
 }
 
 :deep(.el-color-picker) {
