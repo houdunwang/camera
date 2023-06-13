@@ -1,29 +1,25 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import Footer from '@renderer/components/Footer.vue'
-import { ref } from 'vue'
+import packageJson from '../../../../package.json'
 
 const { config } = useConfigStore()
 const devices = await navigator.mediaDevices.enumerateDevices()
 const cameras = devices.filter((d) => {
   return d.kind.includes('video')
 })
-const version = ref('')
-window.api.version((_version: string) => {
-  version.value = _version
-})
 </script>
 
 <template>
-  <main class="bg-[#2c3e50] h-screen w-screen">
-    <section class="p-5 flex flex-col gap-3 pt-10">
+  <main class="bg-[#2c3e50] h-screen w-screen z-50" id="setting">
+    <section class="p-5 flex flex-col gap-3 pt-5">
       <h2 class="text-center text-gray-100 opacity-80 text-sm font-mono">参数设置</h2>
       <el-select
         v-model="config.deviceId"
         placeholder="选择摄像头"
         clearable
         filterable
-        size="large"
+        size="medium"
       >
         <el-option
           v-for="(device, index) in cameras"
@@ -35,27 +31,26 @@ window.api.version((_version: string) => {
       </el-select>
       <el-input
         v-model="config.borderWidth"
-        placeholder="边框宽度"
-        size="large"
+        placeholder="边框宽度，如10px"
+        size="medium"
         clearable
       ></el-input>
       <el-input
         v-model="config.borderColor"
-        placeholder="边框颜色"
-        size="large"
+        placeholder="请输入CSS边框颜色，如#f1c40f"
+        size="medium"
         clearable
       ></el-input>
       <section
-        class="flex flex-col items-center justify-center text-gray-100 font-light mt-3 text-xs"
+        class="flex flex-col items-center justify-center text-gray-100 font-light mt-2 text-xs"
       >
-        <span class="text-orange-300 mb-2">向军大叔作品</span>
+        <span class="text-orange-300 mb-2">向军大叔作品@hdcms.com</span>
         <span class="font-light opacity-70 mb-1">晚八点直播 / 抖音或B站搜索后盾人</span>
         <span class="font-light opacity-70 text-xs text-gray-300">
-          版本号: {{ version ? version : '检测中' }}
+          版本号: {{ packageJson.version }}
         </span>
       </section>
     </section>
-
     <!-- 菜单图标 -->
     <Footer />
   </main>

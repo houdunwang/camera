@@ -1,3 +1,3 @@
-import { Menu } from 'electron'
+// import { Menu } from 'electron'
 
-Menu.setApplicationMenu(null)
+// Menu.setApplicationMenu(null)

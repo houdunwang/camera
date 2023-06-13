@@ -1,15 +1,26 @@
-import { ipcMain, Menu, MenuItemConstructorOptions, shell } from 'electron'
+import { app, BrowserWindow, ipcMain, Menu, MenuItemConstructorOptions, shell } from 'electron'
 
-//苹果系统右键菜单
-ipcMain.on('contextMenu', () => {
+//右键菜单
+ipcMain.on('contextMenu', (event: Electron.IpcMainEvent) => {
+  const win = BrowserWindow.fromWebContents(event.sender) as BrowserWindow
   const template = [
     {
-      label: '退出程序',
-      role: 'quit'
+      label: '关闭摄像头',
+      click: () => {
+        if (BrowserWindow.getAllWindows().length == 1) {
+          app.quit()
+        } else {
+          win.close()
+        }
+      }
     },
     {
-      label: '访问官网',
-      click: () => shell.openExternal('https://app.houdunren.com')
+      label: '访问网站',
+      click: () => shell.openExternal('https://www.houdunren.com')
+    },
+    {
+      label: '退出',
+      role: 'quit'
     }
   ] as MenuItemConstructorOptions[]
 

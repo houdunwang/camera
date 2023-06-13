@@ -2,13 +2,13 @@
 import { InnerShadowUp } from '@icon-park/vue-next'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
-//修改窗口尺寸
+
 const changeRounded = () => {
   config.rounded = !config.rounded
   config.aspectRatio = config.rounded ? 1 : 16 / 9
-  window.api.setWindowSize({ aspectRatio: config.aspectRatio })
+  window.api.toggleRound({ aspectRatio: config.aspectRatio })
 }
-window.api.setWindowSize({ aspectRatio: config.aspectRatio })
+window.api.toggleRound({ aspectRatio: config.aspectRatio })
 </script>
 
 <template>
@@ -17,7 +17,7 @@ window.api.setWindowSize({ aspectRatio: config.aspectRatio })
     <InnerShadowUp
       v-if="config.page == 'camera'"
       theme="outline"
-      size="25"
+      size="20"
       :stroke-width="3"
       class="icon"
       @click="changeRounded"

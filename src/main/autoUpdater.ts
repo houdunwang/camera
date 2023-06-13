@@ -1,6 +1,7 @@
 import { is } from '@electron-toolkit/utils'
 import { BrowserWindow, dialog } from 'electron'
 import { autoUpdater } from 'electron-updater'
+//2023.06.06取消自动更新机制，使用网站下载方式更新
 //自动下载更新
 autoUpdater.autoDownload = false
 //退出时自动安装更新

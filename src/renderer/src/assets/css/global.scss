@@ -10,18 +10,21 @@ body {
 }
 
 html,
-main {
+body,
+#camera,
+#setting {
   -webkit-app-region: drag;
   //菜单图标与文字间距
   --mx-menu-placeholder-width: 10px !important;
 }
 
 textarea,
-div,
 .footer-menu,
+button,
 input {
   -webkit-app-region: no-drag;
 }
+textarea,
 .titlebar {
   //禁用文本选择
   -webkit-user-select: none;

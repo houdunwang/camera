@@ -10,8 +10,8 @@ const api = {
       callback(progress)
     })
   },
-  setWindowSize: (opt: { aspectRatio: number; width: number; height: number }) => {
-    ipcRenderer.send('setWindowSize', opt)
+  toggleRound: (opt: { aspectRatio: number; width: number; height: number }) => {
+    ipcRenderer.send('toggleRound', opt)
   },
   contextMenu: () => {
     ipcRenderer.send('contextMenu')
@@ -19,6 +19,17 @@ const api = {
   //版本号事件
   version: (callback: (version: string) => void) => {
     ipcRenderer.on('version', (_event: IpcRendererEvent, version) => callback(version))
+  },
+  //切换全屏
+  toggleFullscreen: () => {
+    ipcRenderer.send('toggleFullscreen')
+  },
+  //打开新摄像头
+  openNewCamera: () => {
+    ipcRenderer.send('openNewWindow')
+  },
+  axios: () => {
+    return ipcRenderer.invoke('axios')
   }
 }
 

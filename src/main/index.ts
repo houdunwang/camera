@@ -1,18 +1,18 @@
 import { electronApp, is, optimizer } from '@electron-toolkit/utils'
-import { app, BrowserWindow, shell } from 'electron'
+import { app, BrowserWindow, ipcMain, shell } from 'electron'
 import { join } from 'path'
 import icon from '../../resources/icon.png?asset'
-import autoUpdater from './autoUpdater'
+// import autoUpdater from './autoUpdater'
 import './ipcMain'
 import './menu'
-import './windowSize'
+import './windowManage'
 import './contextMenu'
 import { createTray } from './tray'
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
     width: 500,
     height: 281,
-    minHeight: 300,
+    minHeight: 200,
     alwaysOnTop: true,
     show: false,
     autoHideMenuBar: true,
@@ -31,8 +31,10 @@ function createWindow(): void {
     mainWindow.show()
   })
 
+  //渲染进程中请求创建一个新窗口之前被调用
   mainWindow.webContents.setWindowOpenHandler((details) => {
     shell.openExternal(details.url)
+    //取消新窗口创建
     return { action: 'deny' }
   })
 
@@ -44,7 +46,7 @@ function createWindow(): void {
     mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
   }
 
-  autoUpdater(mainWindow)
+  // autoUpdater(mainWindow)
 }
 
 // This method will be called when Electron has finished
@@ -81,6 +83,10 @@ app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
+})
+
+ipcMain.on('openNewWindow', () => {
+  createWindow()
 })
 
 // In this file you can include the rest of your app"s specific main process
