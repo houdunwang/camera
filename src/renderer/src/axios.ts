@@ -13,7 +13,6 @@ http.interceptors.response.use(
     return response
   },
   function (error) {
-    // ElMessageBox.alert(error.response.data.message)
     ElMessage({
       message: error.response.data.message,
       type: 'error',

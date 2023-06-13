@@ -26,6 +26,7 @@ function createWindow(): void {
     }
   })
   if (is.dev) mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
   //缩放比例
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
