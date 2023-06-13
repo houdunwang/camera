@@ -3,7 +3,7 @@ import { http } from '@renderer/axios'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
 try {
-  const res = await http.request({
+  await http.request({
     url: `/token/check`,
     method: 'POST',
     data: {
