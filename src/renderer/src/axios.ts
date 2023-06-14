@@ -2,8 +2,9 @@ import axios from 'axios'
 import { ElMessage } from 'element-plus'
 
 const http = axios.create({
-  baseURL: import.meta.env.DEV ? 'http://localhost:3000/api' : 'https://www.hdcms.com/api',
+  // baseURL: import.meta.env.DEV ? 'http://localhost:3000/api' : 'https://www.hdcms.com/api',
   // baseURL: 'http://localhost:3000/api',
+  baseURL: 'https://www.hdcms.com/api',
   timeout: 10000
 })
 

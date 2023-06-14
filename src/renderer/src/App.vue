@@ -6,7 +6,7 @@ import Secret from './views/Secret.vue'
 import Updater from './views/Updater.vue'
 const { config } = useConfigStore()
 config.page = 'updater'
-
+if (!config.token) config.page = 'secret'
 //右键菜单
 // const contextMenu = () => window.api.contextMenu()
 </script>
