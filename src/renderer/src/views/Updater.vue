@@ -25,6 +25,7 @@ http
   })
   .catch(() => {
     config.token = ''
+    config.page = 'secret'
   })
 </script>
 
