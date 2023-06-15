@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Footer from '@renderer/components/Footer.vue'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import { onMounted } from 'vue'
 
@@ -42,9 +41,6 @@ onMounted(() => {
       autoplay
       :class="{ 'rounded-full': config.rounded }"
     ></video>
-
-    <!-- 菜单图标 -->
-    <Footer />
   </main>
 </template>
 

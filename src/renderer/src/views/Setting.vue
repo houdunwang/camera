@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
-import Footer from '@renderer/components/Footer.vue'
 import packageJson from '../../../../package.json'
 
 const { config } = useConfigStore()
@@ -14,13 +13,7 @@ const cameras = devices.filter((d) => {
   <main class="bg-[#2c3e50] h-screen w-screen z-50" id="setting">
     <section class="p-5 flex flex-col gap-3 pt-5">
       <h2 class="text-center text-gray-100 opacity-80 text-sm font-mono">参数设置</h2>
-      <el-select
-        v-model="config.deviceId"
-        placeholder="选择摄像头"
-        clearable
-        filterable
-        size="medium"
-      >
+      <el-select v-model="config.deviceId" placeholder="选择摄像头" clearable filterable>
         <el-option
           v-for="(device, index) in cameras"
           :key="index"
@@ -29,16 +22,10 @@ const cameras = devices.filter((d) => {
         >
         </el-option>
       </el-select>
-      <el-input
-        v-model="config.borderWidth"
-        placeholder="边框宽度，如10px"
-        size="medium"
-        clearable
-      ></el-input>
+      <el-input v-model="config.borderWidth" placeholder="边框宽度，如10px" clearable></el-input>
       <el-input
         v-model="config.borderColor"
         placeholder="请输入CSS边框颜色，如#f1c40f"
-        size="medium"
         clearable
       ></el-input>
       <section
@@ -51,7 +38,5 @@ const cameras = devices.filter((d) => {
         </span>
       </section>
     </section>
-    <!-- 菜单图标 -->
-    <Footer />
   </main>
 </template>

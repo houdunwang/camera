@@ -1,9 +1,11 @@
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import { ref } from 'vue'
+import useAuth from './useAuth'
 
 export default () => {
   const { config } = useConfigStore()
   const isFullscreen = ref(false)
+  const { authorize } = useAuth()
 
   const toggleFullscreen = () => {
     config.rounded = false
@@ -15,7 +17,9 @@ export default () => {
 
   //打开新摄像头
   const openNewCamera = () => {
-    window.api.openNewCamera()
+    if (authorize(() => {})) {
+      window.api.openNewCamera()
+    }
   }
   return { toggleFullscreen, isFullscreen, openNewCamera }
 }

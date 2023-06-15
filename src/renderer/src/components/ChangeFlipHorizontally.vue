@@ -1,24 +1,19 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import { FlipHorizontally } from '@icon-park/vue-next'
+import useAuth from '@renderer/composables/useAuth'
 
+const { authorize } = useAuth()
 const { config } = useConfigStore()
-//镜像画面
-// const changeFlipHorizontally = () => {
-//   config.flip = !config.flip
-//   config.videoElement!.style.transform = config.flip ? 'rotateY(180deg)' : ''
-// }
+const submit = () => {
+  if (!authorize(() => {})) return
+  config.page = 'camera'
+  config.flip = !config.flip
+}
 </script>
 
 <template>
-  <FlipHorizontally
-    v-if="config.page == 'camera'"
-    theme="outline"
-    size="20"
-    :stroke-width="3"
-    class="icon"
-    @click="config.flip = !config.flip"
-  />
+  <FlipHorizontally theme="outline" size="20" :stroke-width="3" class="icon" @click="submit" />
 </template>
 
 <style lang="scss"></style>
