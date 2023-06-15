@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InnerShadowUp, Square } from '@icon-park/vue-next'
+import { InnerShadowUp } from '@icon-park/vue-next'
 import useAuth from '@renderer/composables/useAuth'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
