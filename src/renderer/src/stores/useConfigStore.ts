@@ -5,17 +5,13 @@ export const useConfigStore = defineStore(
   'camera',
   () => {
     const config = ref({
+      verion: '1.0.98',
       //验证密钥
       secret: '',
-      //验证TOKEN
-      token: '',
       //边框颜色
       borderColor: '#f39c12',
       //边框宽度
       borderWidth: '0px',
-      //窗口尺寸
-      // // width: 500,
-      // height: 281,
       //摄像头设备ID
       deviceId: '',
       page: 'camera',

@@ -1,15 +1,15 @@
 <script setup lang="ts">
 import Footer from '@renderer/components/Footer.vue'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
+import useSoft from './composables/useSoft'
 import Camera from './views/Camera.vue'
-import Setting from './views/Setting.vue'
 import Secret from './views/Secret.vue'
+import Setting from './views/Setting.vue'
 import Updater from './views/Updater.vue'
 const { config } = useConfigStore()
-config.page = 'updater'
-// setTimeout(() => {
-//   config.page = config.token ? 'updater' : 'secret'
-// }, 5000)
+const { init } = useSoft()
+config.page = 'camera'
+init()
 </script>
 
 <template>

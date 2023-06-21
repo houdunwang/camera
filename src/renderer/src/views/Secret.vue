@@ -1,22 +1,8 @@
 <script setup lang="ts">
-import { http } from '@renderer/axios'
+import useSoft from '@renderer/composables/useSoft'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
-import { ElMessage } from 'element-plus'
 const { config } = useConfigStore()
-
-const onSubmit = async (): Promise<any> => {
-  if (!config.secret) return ElMessage.error('请输入密钥')
-  const res = await http.request<any>({
-    url: `/token/getSoftToken`,
-    method: 'POST',
-    data: {
-      secret: config.secret,
-      soft: 'camera'
-    }
-  })
-  config.token = res.data.token
-  config.page = 'camera'
-}
+const { checkSecret } = useSoft()
 </script>
 
 <template>
@@ -27,10 +13,10 @@ const onSubmit = async (): Promise<any> => {
       class="text-slate-500"
       type="textarea"
       :rows="5"
-      placeholder="hdcms.com会员中心获取密钥"
+      placeholder="请在会员中心获取密钥"
       size="default"
     />
-    <el-button type="success" size="default" @click="onSubmit">验证</el-button>
+    <el-button type="success" size="default" @click="checkSecret">验证</el-button>
     <div
       class="text-xs text-slate-400 font-sans font-light flex justify-center flex-col items-center"
     >
