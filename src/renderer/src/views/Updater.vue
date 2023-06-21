@@ -1,47 +1,25 @@
-<script setup lang="ts">
-// import { http } from '@renderer/axios'
-// import { useConfigStore } from '@renderer/stores/useConfigStore'
-// import packageJson from '../../../../package.json'
-// import { ref } from 'vue'
-
-// const { config } = useConfigStore()
-// const checkResult = ref(9)
-// http
-//   .request({
-//     url: `/soft/checkUpdate`,
-//     method: 'POST',
-//     data: {
-//       version: packageJson.version,
-//       name: 'camera'
-//     }
-//   })
-//   .then((res) => {
-//     checkResult.value = res.data
-//     if (res.data == 0) {
-//       config.page = 'camera'
-//     }
-//   })
-//   .catch(() => {
-//     config.token = ''
-//     config.page = 'secret'
-//   })
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main
-    id="updater"
-    class="text-xl font-sans font-light text-slate-800 flex flex-col justify-center items-center w-screen h-screen z-50"
+    class="text-xl text-slate-800 flex flex-col justify-center items-center w-screen h-screen z-50 drag bg-gray-700 font-sans font-thin"
   >
-    <!-- <section v-if="checkResult == 9" class="bg-violet-700 text-white">更新检测中...</section> -->
-    <section class="bg-orange-300 duration-500">
-      <div>有新版本了</div>
-      <div>请访问 <span class="font-bold">hdcms.com</span> 网站下载</div>
+    <section class="text-white">
+      <div class="">有新版本了</div>
+      <a
+        href="https://www.houdunren.com/soft/2"
+        target="_blank"
+        class="font-bold nodrag text-yellow-600 hover:text-yellow-300 mt-1"
+      >
+        访问网站下载安装
+      </a>
+      <div class="text-base opacity-60 mt-3">www.houdunren.com</div>
     </section>
   </main>
 </template>
 
 <style lang="scss" scoped>
 section {
-  @apply flex justify-center items-center flex-col w-screen h-screen;
+  @apply flex justify-center items-center flex-col;
 }
 </style>

@@ -12,8 +12,7 @@ body {
 html,
 body,
 #camera,
-#setting,
-#updater {
+#setting {
   -webkit-app-region: drag;
   //菜单图标与文字间距
   --mx-menu-placeholder-width: 10px !important;
@@ -22,6 +21,7 @@ body,
 textarea,
 .footer-menu,
 button,
+.nodrag,
 input {
   -webkit-app-region: no-drag;
 }
