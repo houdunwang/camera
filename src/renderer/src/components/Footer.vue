@@ -4,10 +4,8 @@ import useCamera from '@renderer/composables/useCamera'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import ChangeFlipHorizontally from './ChangeFlipHorizontally.vue'
 import ChangeRounded from './ChangeRounded.vue'
-import useAuth from '@renderer/composables/useAuth'
 const { toggleFullscreen, openNewCamera } = useCamera()
 const { config } = useConfigStore()
-const { authorize } = useAuth()
 </script>
 
 <template>
@@ -23,7 +21,7 @@ const { authorize } = useAuth()
       size="20"
       :stroke-width="3"
       class="icon"
-      @click="authorize('setting')"
+      @click="config.page = 'setting'"
     />
     <!-- 摄像头页面 -->
     <CameraFive
