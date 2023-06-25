@@ -19,7 +19,7 @@ const { config } = useConfigStore()
   >
     <!-- 设置页面 -->
     <SettingICon
-      v-if="!['setting', 'secret', 'updater'].includes(config.page)"
+      v-if="!['setting', 'updater'].includes(config.page)"
       theme="outline"
       size="20"
       :stroke-width="3"
@@ -40,7 +40,7 @@ const { config } = useConfigStore()
     <!-- 画面镜像 -->
     <ChangeFlipHorizontally v-if="config.page == 'camera'" />
     <!-- 全屏 -->
-    <FullScreen />
+    <FullScreen v-if="['camera'].includes(config.page)" />
     <!-- 快捷菜单 -->
     <DropdownMenu />
     <!-- <power theme="outline" size="20" class="icon" @click="quit" /> -->

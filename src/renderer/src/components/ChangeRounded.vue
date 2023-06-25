@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { InnerShadowUp } from '@icon-park/vue-next'
+import useSoft from '@renderer/composables/useSoft'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 const { config } = useConfigStore()
+const { checkSecret } = useSoft()
 
 const changeRounded = () => {
+  if (checkSecret() === false) return
   config.page = 'camera'
   config.rounded = !config.rounded
   config.aspectRatio = config.rounded ? 1 : 16 / 9

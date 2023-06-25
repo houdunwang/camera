@@ -7,18 +7,17 @@ export default () => {
   const { config } = useConfigStore()
 
   //验证密钥
-  const checkSecret = async (): Promise<any> => {
-    if (!config.secret.trim()) {
+  const getSecret = async (data: { secret: string }): Promise<any> => {
+    if (!data.secret.trim()) {
       return ElMessage({ message: '密钥不能为空', grouping: true, type: 'warning' })
     }
     try {
-      await http.request({
+      const res = await http.request({
         url: '/secret/checkSoftSecret',
         method: 'POST',
-        data: {
-          secret: config.secret
-        }
+        data
       })
+      config.secret = res.data.secret
       config.page = 'camera'
     } catch (error) {
       config.page = 'secret'
@@ -45,11 +44,20 @@ export default () => {
 
   //初始应用
   const init = async () => {
-    if (await checkUpdate()) return
+    await checkUpdate()
 
-    if (!config.secret) config.page = 'secret'
-    else checkSecret()
+    // if (!config.secret) config.page = 'secret'
+    // else checkSecret()
   }
 
-  return { checkSecret, init }
+  //检测密钥
+  const checkSecret = () => {
+    if (!config.secret) {
+      ElMessage({ grouping: true, type: 'warning', message: '请设置密钥' })
+      return false
+    }
+    return true
+  }
+
+  return { checkSecret, init, getSecret }
 }
