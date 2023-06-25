@@ -10,7 +10,7 @@ const toggleFullScreen = () => {
   isFullScreen.value = !isFullScreen.value
 }
 
-document.addEventListener('fullscreenchange', (e) => {
+document.addEventListener('fullscreenchange', () => {
   isFullScreen.value = Boolean(document.fullscreenElement)
 })
 </script>
