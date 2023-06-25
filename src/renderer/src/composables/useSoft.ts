@@ -51,6 +51,5 @@ export default () => {
     else checkSecret()
   }
 
-  init()
-  return { checkSecret }
+  return { checkSecret, init }
 }
