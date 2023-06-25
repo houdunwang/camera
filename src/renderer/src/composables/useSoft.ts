@@ -50,5 +50,7 @@ export default () => {
     if (!config.secret) config.page = 'secret'
     else checkSecret()
   }
-  return { checkSecret, init, checkUpdate }
+
+  init()
+  return { checkSecret }
 }

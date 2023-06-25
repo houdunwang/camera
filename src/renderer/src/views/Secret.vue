@@ -24,7 +24,6 @@ const { checkSecret } = useSoft()
     >
       <span class="font-normal mb-1 mt-2 text-orange-300">向军大叔作品 </span>
       <span class="text-xs font-light opacity-70">微信: houdunren2021</span>
-      <!-- <img src="/xj.jpg" alt="" class="w-20 h-20 right-0 bottom-0" /> -->
     </div>
   </main>
 </template>
