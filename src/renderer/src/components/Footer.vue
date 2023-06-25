@@ -1,18 +1,21 @@
 <script setup lang="ts">
-import { CameraFive, Setting as SettingICon, Share } from '@icon-park/vue-next'
-import useCamera from '@renderer/composables/useCamera'
+import { CameraFive, Setting as SettingICon } from '@icon-park/vue-next'
+import DropdownMenu from '@renderer/components/DropdownMenu.vue'
+import FullScreen from '@renderer/components/FullScreen.vue'
+// import useCamera from '@renderer/composables/useCamera'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import ChangeFlipHorizontally from './ChangeFlipHorizontally.vue'
 import ChangeRounded from './ChangeRounded.vue'
-const { toggleFullscreen, openNewCamera } = useCamera()
+// const { openNewCamera } = useCamera()
 const { config } = useConfigStore()
+
+//退出软件
+// const quit = () => window.api.quit()
 </script>
 
 <template>
   <section
-    @dblclick="toggleFullscreen"
-    class="footer-menu absolute bottom-0 z-20 group w-screen h-10 flex justify-center items-center gap-2 cursor-pointer hover:bg-pink-600"
-    v-show="true"
+    class="nodrag absolute bottom-0 z-30 group w-screen justify-center items-center gap-2 cursor-pointer flex hover:bg-pink-600 py-2"
   >
     <!-- 设置页面 -->
     <SettingICon
@@ -37,11 +40,12 @@ const { config } = useConfigStore()
     <!-- 画面镜像 -->
     <ChangeFlipHorizontally v-if="config.page == 'camera'" />
     <!-- 全屏 -->
-    <!-- <FullScreen /> -->
+    <FullScreen />
     <!-- 快捷菜单 -->
-    <!-- <DropdownMenu /> -->
+    <DropdownMenu />
+    <!-- <power theme="outline" size="20" class="icon" @click="quit" /> -->
     <!-- 打开新摄像头 -->
-    <share
+    <!-- <share
       v-if="config.page == 'camera'"
       theme="filled"
       size="20"
@@ -49,7 +53,7 @@ const { config } = useConfigStore()
       :strokeWidth="3"
       class="icon"
       @click="openNewCamera"
-    />
+    /> -->
   </section>
 </template>
 

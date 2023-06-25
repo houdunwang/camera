@@ -10,8 +10,8 @@ const cameras = devices.filter((d) => {
 </script>
 
 <template>
-  <main class="bg-[#2c3e50] h-screen w-screen z-50" id="setting">
-    <section class="p-5 flex flex-col gap-3 pt-5">
+  <main class="bg-[#2c3e50] h-screen w-screen z-50 drag" id="setting">
+    <section class="p-5 flex flex-col gap-3 pt-5 nodrag">
       <h2 class="text-center text-gray-100 opacity-80 text-sm font-mono">参数设置</h2>
       <el-select v-model="config.deviceId" placeholder="选择摄像头" clearable filterable>
         <el-option
@@ -31,8 +31,8 @@ const cameras = devices.filter((d) => {
       <section
         class="flex flex-col items-center justify-center text-gray-100 font-light mt-2 text-xs"
       >
-        <span class="text-orange-300 mb-2">向军大叔作品@hdcms.com</span>
-        <span class="font-light opacity-70 mb-1">晚八点直播 / 抖音或B站搜索后盾人</span>
+        <span class="text-orange-300 mb-2">向军大叔作品</span>
+        <span class="font-light opacity-70 mb-1">微信: houdunren2021</span>
         <span class="font-light opacity-70 text-xs text-gray-300">
           版本号: {{ packageJson.version }}
         </span>

@@ -24,8 +24,7 @@ onMounted(() => {
 </script>
 <template>
   <main
-    id="camera"
-    class="w-screen h-screen relative"
+    class="w-screen h-screen drag relative"
     :class="{ 'rounded-full': config.rounded }"
     :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
   >

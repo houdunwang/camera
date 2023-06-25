@@ -9,22 +9,19 @@ body {
   background-color: transparent;
 }
 
-html,
-body,
-#camera,
-#setting {
+.drag {
   -webkit-app-region: drag;
   //菜单图标与文字间距
   --mx-menu-placeholder-width: 10px !important;
 }
 
-textarea,
-.footer-menu,
-button,
 .nodrag,
-input {
+input,
+select,
+option {
   -webkit-app-region: no-drag;
 }
+
 textarea,
 .titlebar {
   //禁用文本选择

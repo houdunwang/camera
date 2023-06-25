@@ -1,9 +1,11 @@
 import axios from 'axios'
-import { app, ipcMain } from 'electron'
+import { BrowserWindow, app, ipcMain } from 'electron'
 
 //退出应用
-ipcMain.on('quit', () => {
-  app.quit()
+ipcMain.on('quit', (event: Electron.IpcMainEvent) => {
+  const win = BrowserWindow.fromWebContents(event.sender)
+  if (BrowserWindow.getAllWindows().length == 0) app.quit()
+  else win?.close()
 })
 
 ipcMain.handle('axios', async () => {

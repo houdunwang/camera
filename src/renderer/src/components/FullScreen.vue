@@ -7,7 +7,7 @@ const { toggleFullscreen } = useCamera()
 <template>
   <full-screen
     theme="filled"
-    size="20"
+    size="18"
     fill="#ffffff"
     class="icon"
     :strokeWidth="5"
