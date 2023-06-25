@@ -1,15 +1,19 @@
 import { http } from '@renderer/axios'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
+import { ElMessage } from 'element-plus'
 import packageJson from '../../../../package.json'
 
 export default () => {
   const { config } = useConfigStore()
 
   //验证密钥
-  const checkSecret = async () => {
+  const checkSecret = async (): Promise<any> => {
+    if (!config.secret.trim()) {
+      return ElMessage({ message: '密钥不能为空', grouping: true, type: 'warning' })
+    }
     try {
       await http.request({
-        url: '/softSecret/checkSoftSecret',
+        url: '/secret/checkSoftSecret',
         method: 'POST',
         data: {
           secret: config.secret

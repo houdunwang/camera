@@ -7,8 +7,8 @@ import Secret from './views/Secret.vue'
 import Setting from './views/Setting.vue'
 import Updater from './views/Updater.vue'
 const { config } = useConfigStore()
-const { init } = useSoft()
 config.page = 'camera'
+const { init } = useSoft()
 init()
 </script>
 

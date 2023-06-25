@@ -7,13 +7,13 @@
     <section class="text-white">
       <div class="">有新版本了</div>
       <a
-        href="https://www.houdunren.com/soft/2"
+        href="https://www.hdcms.com/soft/59"
         target="_blank"
-        class="font-bold nodrag text-yellow-600 hover:text-yellow-300 mt-1"
+        class="font-bold nodrag text-yellow-300 hover:text-yellow-300 mt-1"
       >
-        访问网站下载安装
+        访问网站下载
       </a>
-      <div class="text-base opacity-60 mt-3">www.houdunren.com</div>
+      <div class="text-base opacity-50 mt-3">www.hdcms.com</div>
     </section>
   </main>
 </template>
