@@ -13,10 +13,11 @@ export default () => {
     }
     try {
       const res = await http.request({
-        url: '/secret/checkSoftSecret',
+        url: '/softSecret/checkSoftSecret',
         method: 'POST',
         data
       })
+      console.log(res)
       config.secret = res.data.secret
       config.page = 'camera'
     } catch (error) {
