@@ -10,8 +10,8 @@ const cameras = devices.filter((d) => {
 </script>
 
 <template>
-  <main class="bg-[#2c3e50] h-screen w-screen z-50 drag" id="setting">
-    <section class="p-5 flex flex-col gap-3 pt-5 nodrag">
+  <main class="bg-[#2c3e50] h-screen w-screen z-50 drag">
+    <section class="p-5 flex flex-col gap-3 pt-5">
       <h2 class="text-center text-gray-100 opacity-80 text-sm font-mono">参数设置</h2>
       <el-select v-model="config.deviceId" placeholder="选择摄像头" clearable filterable>
         <el-option

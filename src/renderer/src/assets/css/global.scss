@@ -18,6 +18,7 @@ body {
 .nodrag,
 input,
 select,
+textarea,
 option {
   -webkit-app-region: no-drag;
 }
