@@ -1,6 +1,6 @@
 {
   "name": "houdunren-camera",
-  "version": "1.0.42",
+  "version": "1.0.43",
   "description": "方便好用的桌面摄像头软件，适合直播、录课、内容分享时使用",
   "main": "./out/main/index.js",
   "author": "向军大叔",

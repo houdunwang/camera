@@ -8,8 +8,8 @@ import Setting from './views/Setting.vue'
 import Updater from './views/Updater.vue'
 const { config } = useConfigStore()
 config.page = 'camera'
-const { init } = useSoft()
-init()
+const { checkUpdate } = useSoft()
+checkUpdate()
 </script>
 
 <template>

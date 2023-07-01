@@ -6,7 +6,7 @@ import packageJson from '../../../../package.json'
 export default () => {
   const { config } = useConfigStore()
 
-  //验证密钥
+  //获取密钥
   const getSecret = async (data: { secret: string }): Promise<any> => {
     if (!data.secret.trim()) {
       return ElMessage({ message: '密钥不能为空', grouping: true, type: 'warning' })
@@ -17,7 +17,6 @@ export default () => {
         method: 'POST',
         data
       })
-      console.log(res)
       config.secret = res.data.secret
       config.page = 'camera'
     } catch (error) {
@@ -43,22 +42,15 @@ export default () => {
     return false
   }
 
-  //初始应用
-  const init = async () => {
-    await checkUpdate()
-
-    // if (!config.secret) config.page = 'secret'
-    // else checkSecret()
-  }
-
   //检测密钥
   const checkSecret = () => {
     if (!config.secret) {
       ElMessage({ grouping: true, type: 'warning', message: '请设置密钥' })
+      config.page = 'secret'
       return false
     }
     return true
   }
 
-  return { checkSecret, init, getSecret }
+  return { checkSecret, getSecret, checkUpdate }
 }
