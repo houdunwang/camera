@@ -5,7 +5,6 @@ export const useConfigStore = defineStore(
   'camera',
   () => {
     const config = ref({
-      verion: '1.0.98',
       //验证密钥
       secret: '',
       //边框颜色

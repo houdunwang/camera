@@ -4,7 +4,7 @@ import { ElMessage } from 'element-plus'
 import packageJson from '../../../../package.json'
 
 export default () => {
-  const { config } = useConfigStore()
+  const configStore = useConfigStore()
 
   //获取密钥
   const getSecret = async (data: { secret: string }): Promise<any> => {
@@ -17,11 +17,11 @@ export default () => {
         method: 'POST',
         data
       })
-      config.secret = res.data.secret
-      config.page = 'camera'
+      configStore.config.secret = res.data.secret
+      configStore.config.page = 'camera'
     } catch (error) {
-      config.page = 'secret'
-      config.secret = ''
+      configStore.config.page = 'secret'
+      configStore.config.secret = ''
     }
   }
 
@@ -36,7 +36,7 @@ export default () => {
       }
     })
     if (res.data.code == 1) {
-      config.page = 'updater'
+      configStore.config.page = 'updater'
       return true
     }
     return false
@@ -44,13 +44,17 @@ export default () => {
 
   //检测密钥
   const checkSecret = () => {
-    if (!config.secret) {
+    if (!configStore.config.secret) {
       ElMessage({ grouping: true, type: 'warning', message: '请设置密钥' })
-      config.page = 'secret'
+      configStore.config.page = 'secret'
       return false
     }
     return true
   }
 
-  return { checkSecret, getSecret, checkUpdate }
+  //打开窗口
+  const open = (url: string) => {
+    window.open(url)
+  }
+  return { checkSecret, getSecret, checkUpdate, open }
 }
