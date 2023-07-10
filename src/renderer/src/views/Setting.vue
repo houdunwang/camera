@@ -29,9 +29,18 @@ const cameras = devices.filter((d) => {
         clearable
       ></el-input>
       <section
-        class="flex flex-col items-center justify-center text-gray-100 font-light mt-2 text-xs"
+        class="flex flex-col items-center justify-center text-gray-100 font-light mt-2 text-xs nodrag"
       >
-        <span class="text-orange-300 mb-2">向军大叔作品</span>
+        <div class="text-orange-300 mb-2">
+          向军大叔作品
+          <a
+            href="https://www.houdunren.com/live"
+            target="_blank"
+            class="text-yellow-500 font-bold hover:text-orange-300"
+          >
+            晚八点直播
+          </a>
+        </div>
         <span class="font-light opacity-70 mb-1">微信: houdunren2021</span>
         <span class="font-light opacity-70 text-xs text-gray-300">
           版本号: {{ packageJson.version }}

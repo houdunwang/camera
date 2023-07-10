@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import { FlipHorizontally } from '@icon-park/vue-next'
-import useSoft from '@renderer/composables/useSoft'
-const { checkSecret } = useSoft()
+// import useSoft from '@renderer/composables/useSoft'
+// const { checkSecret } = useSoft()
 
 const { config } = useConfigStore()
 const submit = () => {
-  if (checkSecret() === false) return
+  // if (checkSecret() === false) return
 
   config.page = 'camera'
   config.flip = !config.flip
