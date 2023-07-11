@@ -6,7 +6,7 @@ import packageJson from '../../../../package.json'
 export default () => {
   const configStore = useConfigStore()
   const isLatestVersion = ref(false)
-  //获取密钥
+  //获取口令
   const getSecret = async (data: { secret: string }): Promise<any> => {
     return await http.request({
       url: '/softSecret/checkSoftSecret',
@@ -32,7 +32,7 @@ export default () => {
     }
   }
 
-  //检测密钥
+  //检测口令
   const checkSecret = async () => {
     if (!configStore.config.secret) return
     try {

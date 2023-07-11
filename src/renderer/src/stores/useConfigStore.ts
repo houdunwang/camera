@@ -5,7 +5,7 @@ export const useConfigStore = defineStore(
   'camera',
   () => {
     const config = ref({
-      //验证密钥
+      //验证口令
       secret: '',
       //边框颜色
       borderColor: '#f39c12',
