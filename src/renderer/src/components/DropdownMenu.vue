@@ -2,7 +2,7 @@
 import { HamburgerButton } from '@icon-park/vue-next'
 import useCamera from '@renderer/composables/useCamera'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
-const { config } = useConfigStore()
+// const { config } = useConfigStore()
 const { openNewCamera } = useCamera()
 const newWindow = () => {
   const { config } = useConfigStore()
@@ -20,11 +20,11 @@ const quit = () => window.api.quit()
       <template #dropdown>
         <el-dropdown-menu>
           <el-dropdown-item @click="newWindow">新开镜头</el-dropdown-item>
-          <el-dropdown-item @click="config.page = 'secret'">学习口令</el-dropdown-item>
+          <!-- <el-dropdown-item @click="config.page = 'secret'">学习口令</el-dropdown-item> -->
           <el-dropdown-item @click="quit">关闭镜头</el-dropdown-item>
-          <el-dropdown-item>
+          <!-- <el-dropdown-item>
             <a href="https://www.houdunren.com" target="_blank">访问网站</a>
-          </el-dropdown-item>
+          </el-dropdown-item> -->
         </el-dropdown-menu>
       </template>
     </el-dropdown>

@@ -49,9 +49,9 @@ export default () => {
 
   const init = async () => {
     await checkUpdate()
-    setTimeout(async () => {
-      if (isLatestVersion) await checkSecret()
-    }, 3000)
+    // setTimeout(async () => {
+    //   if (isLatestVersion) await checkSecret()
+    // }, 3000)
   }
   return { checkSecret, getSecret, checkUpdate, open, init }
 }
