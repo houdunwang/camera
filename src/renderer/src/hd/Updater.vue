@@ -5,15 +5,15 @@
     class="text-xl text-slate-800 flex flex-col justify-center items-center w-screen h-screen z-50 drag bg-gray-700 font-sans font-thin"
   >
     <section class="text-white">
-      <div class="">有新版本了</div>
+      <div class="opacity-60">有新版本更新了</div>
       <a
-        href="https://www.houdunren.com/soft/2"
+        href="https://www.houdunren.com/soft"
         target="_blank"
-        class="font-bold nodrag text-yellow-300 hover:text-yellow-300 mt-1"
+        class="font-bold nodrag text-yellow-500 mt-1 hover:text-yellow-300"
       >
-        访问网站下载
+        马上下载
       </a>
-      <div class="text-base opacity-50 mt-3">www.houdunren.com</div>
+      <!-- <div class="text-base opacity-50 mt-3">www.houdunren.com</div> -->
     </section>
   </main>
 </template>

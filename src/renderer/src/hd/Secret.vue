@@ -1,10 +1,21 @@
 <script setup lang="ts">
-import useSoft from '@renderer/composables/useSoft'
+import useSoft from '@renderer/hd/useSoft'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
+import { ElMessage } from 'element-plus'
 import { ref } from 'vue'
 const configStore = useConfigStore()
 const { getSecret, open } = useSoft()
 const form = ref({ secret: configStore.config.secret })
+const onSubmit = async () => {
+  if (!form.value.secret.trim()) ElMessage({ message: '密钥不能为空', type: 'warning' })
+  else
+    try {
+      const res = await getSecret(form.value)
+      ElMessage.success('密钥正确')
+      configStore.config.secret = res.data.secret
+      configStore.config.page = 'camera'
+    } catch (error) {}
+}
 </script>
 
 <template>
@@ -22,7 +33,7 @@ const form = ref({ secret: configStore.config.secret })
       size="default"
     />
     <div class="flex items-center">
-      <el-button type="success" size="default" plain @click="getSecret(form)" class="nodrag">
+      <el-button type="success" size="default" plain @click="onSubmit" class="nodrag">
         验证密钥
       </el-button>
       <el-button

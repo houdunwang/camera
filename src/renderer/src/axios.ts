@@ -13,13 +13,15 @@ http.interceptors.response.use(
     return response
   },
   function (error) {
-    ElMessage({
-      message: error.response.data.message,
-      type: 'error',
-      duration: 3000,
-      center: false,
-      grouping: true
-    })
+    if (error.request.status == 422) {
+      ElMessage({
+        message: error.response.data.message.replace(/\(.*?\)/, ''),
+        type: 'error',
+        duration: 3000,
+        center: false,
+        grouping: true
+      })
+    }
     return Promise.reject(error)
   }
 )
