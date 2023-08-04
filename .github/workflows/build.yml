@@ -40,8 +40,7 @@ jobs:
       - name: Build Electron App for macos
         if: matrix.os == 'macos-latest'
         run: |
-          pnpm run build:mac-x86
-          pnpm run build:mac-arm64
+          pnpm run build:mac-github
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
