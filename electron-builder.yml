@@ -7,9 +7,10 @@ files:
   - '!src/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
   - '!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}'
+  - '!{.env,.env.*,.npmrc,pnpm-lock.yaml}'
   - '!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}'
 asarUnpack:
-  - resources/*
+  - resources/**
 afterSign: build/notarize.js
 win:
   executableName: houdunren-camera
@@ -19,11 +20,12 @@ nsis:
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
-  entitlementsInherit: build/entitlements.mac.plist
-  icon: build/icon.icns
-  target: ['mas', 'pkg', 'dmg']
   # 最低系统版本，下面指生成arm，因为最低版本是12
   minimumSystemVersion: 12
+  entitlementsInherit: build/entitlements.mac.plist
+  # 图标，看后盾人文档库 electron 章节有介绍生成方法
+  icon: build/icon.icns
+  target: ['mas', 'pkg', 'dmg']
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
@@ -38,6 +40,7 @@ mas:
   provisioningProfile: build/camera.provisionprofile
 dmg:
   artifactName: ${name}-${version}.${ext}
+  sign: false
 linux:
   target:
     - AppImage
@@ -48,10 +51,6 @@ linux:
 appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
-# publish:
-#   provider: generic
-#   url: https://github.com/houdunwang/camera
-# publish:
-#   provider: github
-#   releaseType: release
-#   url: https://github.com/houdunwang/camera
+publish:
+  provider: generic
+  url: https://example.com/auto-updates
