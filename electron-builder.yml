@@ -1,5 +1,5 @@
 appId: com.houdunren.camera
-productName: houdunren-camera
+productName: 向军大叔桌面摄像头
 directories:
   buildResources: build
 files:
@@ -13,7 +13,7 @@ asarUnpack:
   - resources/**
 afterSign: build/notarize.js
 win:
-  executableName: houdunren-camera
+  executableName: 向军大叔桌面摄像头
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -27,7 +27,7 @@ mac:
   icon: build/icon.icns
   target: ['mas', 'pkg', 'dmg']
   extendInfo:
-    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSCameraUsageDescription: 软件需要调用摄像头，用于显示你的摄像头画面.
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
     - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
