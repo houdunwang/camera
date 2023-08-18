@@ -10,11 +10,13 @@ export const useConfigStore = defineStore(
       //边框颜色
       borderColor: '#f39c12',
       //边框宽度
-      borderWidth: '0px',
+      borderWidth: 5,
       //摄像头设备ID
       deviceId: '',
       page: 'camera',
-      //圆角
+      //边框圆角
+      borderRadius: 10,
+      //圆型摄像头
       rounded: false,
       //视频比例
       aspectRatio: 16 / 9,

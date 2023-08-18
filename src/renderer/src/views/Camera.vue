@@ -24,9 +24,10 @@ onMounted(() => {
 </script>
 <template>
   <main
-    class="w-screen h-screen drag relative"
-    :class="{ 'rounded-full': config.rounded }"
-    :style="`border:solid ${config.borderWidth} ${config.borderColor}`"
+    class="w-screen h-screen drag relative aspect-square"
+    :style="`border:solid ${config.borderWidth}px ${config.borderColor};border-radius:${
+      config.rounded ? '50%' : config.borderRadius + 'px'
+    }`"
   >
     <div
       class="border-4 border-transparent absolute w-screen h-screen bg-slate-700 text-white font-light text-base flex flex-col justify-center items-center"
@@ -35,10 +36,12 @@ onMounted(() => {
       <div class="text-xs opacity-90">如果长时间不加载，在软件配置中切换摄像头</div>
     </div>
     <video
-      class="object-cover h-screen w-screen relative z-10 box-border"
-      :style="config.flip ? `transform: rotateY(180deg)` : ''"
+      class="object-cover h-full w-full relative z-10 aspect-video"
+      :style="{
+        transform: config.flip ? `rotateY(180deg)` : '',
+        height: config.rounded ? '100vh' : ''
+      }"
       autoplay
-      :class="{ 'rounded-full': config.rounded }"
     ></video>
   </main>
 </template>

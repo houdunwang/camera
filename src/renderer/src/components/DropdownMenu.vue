@@ -1,13 +1,9 @@
 <script setup lang="ts">
 import { HamburgerButton } from '@icon-park/vue-next'
 import useCamera from '@renderer/composables/useCamera'
-import { useConfigStore } from '@renderer/stores/useConfigStore'
-// const { config } = useConfigStore()
 const { openNewCamera } = useCamera()
 const newWindow = () => {
-  const { config } = useConfigStore()
-  if (!config.secret) config.page = 'secret'
-  else openNewCamera()
+  openNewCamera()
 }
 //退出软件
 const quit = () => window.api.quit()

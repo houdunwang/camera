@@ -16,6 +16,7 @@ const { config } = useConfigStore()
 <template>
   <section
     class="nodrag absolute bottom-0 z-30 group w-screen justify-center items-center gap-2 cursor-pointer flex hover:bg-pink-600 py-2"
+    :class="{ 'bg-pink-600': config.page == 'setting' }"
   >
     <!-- 设置页面 -->
     <SettingICon
@@ -61,5 +62,11 @@ const { config } = useConfigStore()
 .icon,
 :deep(.icon) {
   @apply text-white cursor-pointer opacity-0 group-hover:opacity-100;
+}
+.bg-pink-600 {
+  .icon,
+  :deep(.icon) {
+    @apply opacity-100;
+  }
 }
 </style>

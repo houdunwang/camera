@@ -10,8 +10,8 @@ import './contextMenu'
 import { createTray } from './tray'
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
-    width: 500,
-    height: 281,
+    width: 720,
+    height: 405,
     minHeight: 300,
     minWidth: 300,
     alwaysOnTop: true,
@@ -19,7 +19,9 @@ function createWindow(): void {
     autoHideMenuBar: true,
     skipTaskbar: true,
     frame: false,
+    hasShadow: false,
     transparent: true,
+    roundedCorners: false,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -27,6 +29,7 @@ function createWindow(): void {
     }
   })
   if (is.dev) mainWindow.webContents.openDevTools()
+  mainWindow.setAspectRatio(16 / 9)
   // mainWindow.webContents.openDevTools()
   //缩放比例
   mainWindow.on('ready-to-show', () => {
@@ -82,9 +85,9 @@ app.whenReady().then(() => {
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit()
-  }
+  // if (process.platform !== 'darwin') {
+  app.quit()
+  // }
 })
 
 ipcMain.on('openNewWindow', () => {
