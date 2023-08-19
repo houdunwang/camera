@@ -52,7 +52,12 @@ const cameras = devices.filter((d) => {
       >
         <div class="text-orange-300 mb-2">
           向军大叔作品
-          <span class="text-yellow-500 font-bold hover:text-orange-300">晚八点直播</span>
+          <a
+            href="https://www.houdunren.com/live"
+            target="_blank"
+            class="text-yellow-500 font-bold hover:text-orange-300"
+            >晚八点直播</a
+          >
         </div>
         <span class="font-light opacity-70 mb-1">微信: houdunren2021</span>
         <span class="font-light opacity-70 text-xs text-gray-300">

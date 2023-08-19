@@ -21,7 +21,7 @@ function createWindow(): void {
     frame: false,
     hasShadow: false,
     transparent: true,
-    roundedCorners: false,
+    // roundedCorners: false,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, '../preload/index.js'),
@@ -30,6 +30,7 @@ function createWindow(): void {
   })
   if (is.dev) mainWindow.webContents.openDevTools()
   mainWindow.setAspectRatio(16 / 9)
+
   // mainWindow.webContents.openDevTools()
   //缩放比例
   mainWindow.on('ready-to-show', () => {
@@ -52,6 +53,9 @@ function createWindow(): void {
   }
 
   // autoUpdater(mainWindow)
+  setTimeout(() => {
+    // mainWindow.setFullScreen(true)
+  })
 }
 
 // This method will be called when Electron has finished
