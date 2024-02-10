@@ -13,7 +13,7 @@
       >
         马上下载
       </a>
-      <!-- <div class="text-base opacity-50 mt-3">www.houdunren.com</div> -->
+      <div class="text-base opacity-50 mt-3">苹果应用商店下载的，请使用app store更新</div>
     </section>
   </main>
 </template>

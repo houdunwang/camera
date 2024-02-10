@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  background-color: transparent;
+}
+
+.drag {
+  -webkit-app-region: drag;
+  --mx-menu-placeholder-width: 10px !important;
+}
+
+.nodrag,
+input,
+select,
+textarea,
+option {
+  -webkit-app-region: no-drag;
+}
+
+textarea,
+.titlebar {
+  -webkit-user-select: none;
+}
