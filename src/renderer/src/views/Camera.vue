@@ -24,7 +24,7 @@ onMounted(() => {
 </script>
 <template>
   <main
-    class="w-screen h-screen drag relative aspect-square"
+    class="w-screen h-screen drag relative aspect-square overflow-hidden"
     :style="`border:solid ${config.borderWidth}px ${config.borderColor};border-radius:${
       config.rounded ? '50%' : config.borderRadius + 'px'
     }`"

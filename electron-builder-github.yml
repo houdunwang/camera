@@ -23,6 +23,7 @@ mac:
   entitlementsInherit: build/entitlements.mac.plist
   # 图标，看后盾人文档库 electron 章节有介绍生成方法
   icon: build/icon.icns
+  target: ['pkg']
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
