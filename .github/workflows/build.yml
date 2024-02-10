@@ -60,7 +60,7 @@ jobs:
       - name: Cleanup Artifacts for MacOS
         if: matrix.os == 'macos-latest'
         run: |
-          npx del "dist/*" "!dist/(*.dmg|*.zip|latest*.yml)"
+          npx del-cli "dist/*" "!dist/(*.dmg|*.zip|latest*.yml)"
 
       - name: Cleanup Artifacts for Linux
         if: matrix.os == 'ubuntu-latest'
