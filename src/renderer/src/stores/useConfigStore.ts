@@ -5,12 +5,10 @@ export const useConfigStore = defineStore(
   'camera',
   () => {
     const config = ref({
-      //验证口令
-      secret: '',
       //边框颜色
       borderColor: '#f39c12',
       //边框宽度
-      borderWidth: 5,
+      borderWidth: 0,
       //摄像头设备ID
       deviceId: '',
       page: 'camera',
@@ -23,7 +21,11 @@ export const useConfigStore = defineStore(
       //视频标签元素
       videoElement: null as null | HTMLVideoElement,
       //镜像
-      flip: false
+      flip: false,
+      token: {
+        uid: '',
+        secret: ''
+      }
     })
 
     const updateConfig = () => {}

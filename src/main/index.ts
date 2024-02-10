@@ -28,7 +28,8 @@ function createWindow(): void {
       sandbox: false
     }
   })
-  if (is.dev) mainWindow.webContents.openDevTools()
+  // if (is.dev)
+  mainWindow.webContents.openDevTools()
   mainWindow.setAspectRatio(16 / 9)
 
   // mainWindow.webContents.openDevTools()
