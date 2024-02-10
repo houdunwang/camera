@@ -41,6 +41,7 @@ jobs:
         if: matrix.os == 'macos-latest'
         run: |
           pnpm run build:mac
+          pnpm run build:mac-arm
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
