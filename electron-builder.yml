@@ -25,6 +25,7 @@ mac:
   icon: build/icon.icns
   target:
     - zip
+    - pkg
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
