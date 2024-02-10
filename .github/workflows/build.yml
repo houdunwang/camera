@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [windows-latest, macos-latest, ubuntu-latest]
+        os: [windows-latest, macos-latest]
 
     steps:
       - name: Check out git repository
@@ -40,17 +40,16 @@ jobs:
       - name: Build Electron App for macos
         if: matrix.os == 'macos-latest'
         run: |
-          pnpm run build:github-mac
-          pnpm run build:github-mac-arm64
+          pnpm run build:mac
         env:
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
-      - name: Build Electron App for linux
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          pnpm run build:linux
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      # - name: Build Electron App for linux
+      #   if: matrix.os == 'ubuntu-latest'
+      #   run: |
+      #     pnpm run build:linux
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 
       - name: Cleanup Artifacts for Windows
         if: matrix.os == 'windows-latest'
@@ -62,10 +61,10 @@ jobs:
         run: |
           npx del-cli "dist/*" "!dist/(*.dmg|*.zip|latest*.yml)"
 
-      - name: Cleanup Artifacts for Linux
-        if: matrix.os == 'ubuntu-latest'
-        run: |
-          npx del "dist/*" "!dist/(*.AppImage.*|latest*.yml|*.appimage.*)"
+      # - name: Cleanup Artifacts for Linux
+      #   if: matrix.os == 'ubuntu-latest'
+      #   run: |
+      #     npx del "dist/*" "!dist/(*.AppImage.*|latest*.yml|*.appimage.*)"
 
       - name: upload artifacts
         uses: actions/upload-artifact@v4

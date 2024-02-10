@@ -1,5 +1,5 @@
 appId: com.houdunren.camera
-productName: 向军大叔桌面摄像头
+productName: houdunren-camera
 directories:
   buildResources: build
 files:
@@ -13,37 +13,25 @@ asarUnpack:
   - resources/**
 afterSign: build/notarize.js
 win:
-  executableName: 向军大叔桌面摄像头
+  executableName: houdunren-camera
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
   uninstallDisplayName: ${productName}
   createDesktopShortcut: always
 mac:
-  # 最低系统版本，下面指生成arm，因为最低版本是12
-  # minimumSystemVersion: 12
   entitlementsInherit: build/entitlements.mac.plist
   # 图标，看后盾人文档库 electron 章节有介绍生成方法
   icon: build/icon.icns
-  # target: ['mas', 'pkg', 'dmg']
-  target: { target: 'mas', arch: 'universal' }
+  target:
+    - zip
   extendInfo:
-    NSCameraUsageDescription: 软件需要使用你的摄像头，用于显示你的视频画面.
-    # - NSMicrophoneUsageDescription: 请允许本程序访问您的麦克风
-    # - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
-    # - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
-mas:
-  hardenedRuntime: false
-  type: distribution
-  category: public.app-category.utilities
-  entitlements: build/entitlements.mas.plist
-  entitlementsInherit: build/entitlements.mas.inherit.plist
-  provisioningProfile: build/camera.provisionprofile
-  # extendInfo:
-  #   - NSCameraUsageDescription: 软件需要使用你的摄像头，用于显示你的视频画面.
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
 dmg:
   artifactName: ${name}-${version}.${ext}
-  sign: false
 linux:
   target:
     - AppImage
