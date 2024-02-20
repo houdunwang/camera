@@ -17,7 +17,7 @@ config.page = 'camera'
       <!-- 菜单图标 -->
       <Footer />
       <!-- 编译苹果 mas 时不使用该组件 -->
-      <Secret />
+      <!-- <Secret /> -->
     </main>
   </Suspense>
 </template>
