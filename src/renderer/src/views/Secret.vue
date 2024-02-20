@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import axios from 'axios'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
+import axios from 'axios'
 import { ElMessage } from 'element-plus'
 import { ref } from 'vue'
 import Package from '../../../../package.json'
