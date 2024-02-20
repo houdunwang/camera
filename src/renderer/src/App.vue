@@ -3,7 +3,7 @@ import Footer from '@renderer/components/Footer.vue'
 import { useConfigStore } from '@renderer/stores/useConfigStore'
 import Camera from './views/Camera.vue'
 import Setting from './views/Setting.vue'
-import Secret from './views/Secret.vue'
+// import Secret from './views/Secret.vue'
 
 const { config } = useConfigStore()
 config.page = 'camera'

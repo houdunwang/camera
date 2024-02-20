@@ -6,6 +6,9 @@ import { ref } from 'vue'
 import Package from '../../../../package.json'
 
 const { config } = useConfigStore()
+if (!config.token) {
+  config.token = { uid: '', secret: '' }
+}
 const show = ref(false)
 const secretCheck = () => {
   axios
@@ -40,7 +43,7 @@ upgradeCheck()
 </script>
 
 <template>
-  <main class="w-screen h-screen bg-[#2c3e50] drag p-5 text-white z-[999]" v-show="show">
+  <main v-show="show" class="w-screen h-screen bg-[#2c3e50] drag p-5 text-white z-[999]">
     <h1 class="text-center my-5 text-md opacity-80">口令设置</h1>
     <section class="nodrag">
       <h5>用户 uid</h5>
